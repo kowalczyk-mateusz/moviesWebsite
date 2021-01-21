@@ -13,3 +13,5 @@ const movieReducer = (state=initialState, action) =>{
             return{...state}
     }
 }
+
+export default movieReducer
