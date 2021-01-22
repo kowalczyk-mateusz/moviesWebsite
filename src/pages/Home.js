@@ -5,7 +5,6 @@ import Movies from '../components/Movie'
 import MainMovie from '../components/Main Movie/mainMovie'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
-import PopularList from '../components/Popular Movies List/popularMovieList'
 const Home = () =>{
     const dispatch = useDispatch();
     useEffect(()=>{
@@ -16,15 +15,15 @@ const Home = () =>{
     return(
         <HomePage>
             {popularMovies &&(
+                            <>
             <MainMovie key={popularMovies[0].id}
             title={popularMovies[0].original_title}
             release={popularMovies[0].release_date}
             image={popularMovies[0].backdrop_path}
             overview={popularMovies[0].overview}
             id={popularMovies[0].id}
-            rating={popularMovies[0].vote_average}/>)}
-            <MoviesList>
-            {popularMovies &&(
+            rating={popularMovies[0].vote_average}/>
+            <MoviesList>{
                 popularMovies.map((movie)=>{
                    if(popularMovies[0].id !== movie.id) return <Movies key={movie.id}
                     title={movie.original_title}
@@ -33,9 +32,10 @@ const Home = () =>{
                     overview={movie.overview}
                     id={movie.id}
                     rating={movie.vote_average}/>
-                })
-                )}
+                })}
                 </MoviesList>
+                </>
+                                )}
         </HomePage>
     )
 }
@@ -49,7 +49,7 @@ display: grid;
 width: 80%;
 margin: 0 auto;
 margin-top: 5rem;
-grid-template-columns: repeat(3, 1fr);
-grid-column-gap: 1rem;
+grid-template-columns: repeat(4, 1fr);
+grid-gap: 1rem;
 `
 export default Home
