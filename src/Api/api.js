@@ -1,5 +1,5 @@
 const apiKey = `7d01e2f21937769f340b6be2e4f1f146`;
-
+const movieName = 'dsada';
 //20 POPULAR MOVIES EVERYDAY
 export const popularApi = `https://api.themoviedb.org/3/movie/popular?api_key=7d01e2f21937769f340b6be2e4f1f146&page=1`;
 //SEARCH MOVIE
@@ -14,7 +14,8 @@ export const MovieGenreApi = `https://api.themoviedb.org/3/genre/movie/list?api_
 export const TvGenreApi = `https://api.themoviedb.org/3/genre/TV/list?api_key=7d01e2f21937769f340b6be2e4f1f146&language=en-US`
 //TOP RATED MOVIES 
 export const TopRatedMovies = `https://api.themoviedb.org/3/movie/top_rated?api_key=7d01e2f21937769f340b6be2e4f1f146&language=en-US&page=1`;
-
+//UPCOMING MOVIES
+export const upcomingMoviesApi = `https://api.themoviedb.org/3/movie/upcoming?api_key=7d01e2f21937769f340b6be2e4f1f146&language=en-US&page=1`;
 
 
 
