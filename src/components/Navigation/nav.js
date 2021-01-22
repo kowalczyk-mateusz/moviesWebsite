@@ -1,7 +1,7 @@
-import {motion} from 'framer-motion'
-import React from 'react'
-import styled from 'styled-components'
 
+import React from 'react'
+
+import {Logo, NavBar, Menu, Search} from './navStyle'
 const Nav = () =>{
     return (
         <NavBar>
@@ -18,44 +18,11 @@ const Nav = () =>{
                 </ul>
             </Menu>
             <Search>
-                    <input type="text"/>
+                    <input type="text" placeholder="wyszukaj film lub serial"/>
             </Search>
         </NavBar>
     )
 }
 
-const NavBar = styled(motion.div)`
-width: 100%;
-height: 10vh;
-background-color: #071621;
-display: flex;
-color: #47CCA0;
-align-items: center;
-
-`
-const Logo = styled(motion.div)`
-flex: 1;
-display: flex;
-justify-content: center;
-h2{
-    font-size: 1.5rem;
-    letter-spacing: -1px;
-}
-span{
-    font-weight: 300;
-    font-size: 2.5rem;
-}
-`
-const Menu = styled(motion.div)`
-flex: 3;
-ul{
-    justify-content: flex-end;
-    display: flex;
-    padding-right: 5rem;
-}
-`
-const Search = styled(motion.div)`
-flex: 1;
-`
 
 export default Nav

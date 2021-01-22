@@ -11,4 +11,10 @@ width: 100%;
     outline: 0;
     border: 0;
 }
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
 `
