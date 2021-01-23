@@ -16,7 +16,8 @@ export const TvGenreApi = `https://api.themoviedb.org/3/genre/TV/list?api_key=7d
 export const TopRatedMovies = `https://api.themoviedb.org/3/movie/top_rated?api_key=7d01e2f21937769f340b6be2e4f1f146&language=en-US&page=1`;
 //UPCOMING MOVIES
 export const upcomingMoviesApi = `https://api.themoviedb.org/3/movie/upcoming?api_key=7d01e2f21937769f340b6be2e4f1f146&language=en-US&page=1`;
-
+//GET MOVIE DEETAILS
+export const movieDetailApi = (movieId) => `https://api.themoviedb.org/3/movie/${movieId}?api_key=7d01e2f21937769f340b6be2e4f1f146&language=en-US`
 
 
 
