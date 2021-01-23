@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import '../assets/fontAwesome';
 import { useDispatch } from 'react-redux';
 import { loadDetail } from '../actions/detailsActions';
 import {Link} from 'react-router-dom'
-const Movies = ({title, release, image, overview, id, rating})=>{
+const Movies = ({title,  image, id})=>{
 
     const finalImage = `https://image.tmdb.org/t/p/w300${image}`
 

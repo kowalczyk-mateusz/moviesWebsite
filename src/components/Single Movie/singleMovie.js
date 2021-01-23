@@ -16,8 +16,8 @@ const SingleMovie = ()=>{
     
     }
 
-const {movie, video, isLoading} = useSelector((state)=> state.detail)
-const finalImage = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+const {movie, video, isLoading, provider} = useSelector((state)=> state.detail)
+const finalImage = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
 
 return(
     <>
@@ -27,6 +27,7 @@ return(
             <MovieImage>
                 <img src={finalImage} alt=""/>
             </MovieImage>
+
             <MovieTitle>
                 <h2>{movie.original_title}</h2>
             </MovieTitle>
@@ -44,12 +45,22 @@ return(
             </MovieGenres>
             <MovieCompanies>
                 {movie.production_companies.map((companies)=>
-                    <p>{companies.name}</p>
+                    <p key={companies.id}>{companies.name}</p>
                 )}
             </MovieCompanies>
             <MovieTrailer>
-            <iframe width="560" height="315" src={`https://www.youtube.com/embed/${video}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src={`https://www.youtube.com/embed/${video}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title={video}></iframe>
             </MovieTrailer>
+            {provider && (
+            <MovieProviders>
+                <ProviderName>
+            {provider.map((providers)=> <p>{providers.provider_name}</p>)}
+                </ProviderName>
+                <ProviderImage>
+                {provider.map((providers)=> <img src={`https://image.tmdb.org/t/p/w500${providers.logo_path}`}/>)}
+                </ProviderImage>
+            </MovieProviders>
+            )}
     </MovieDetail>
 </MovieCard>
 )}
@@ -65,6 +76,7 @@ overflow: scroll;
 top: 0;
 left: 0;
 z-index: 50;
+overflow-x: hidden;
 `
 const MovieDetail = styled.div`
 width: 80%;
@@ -75,11 +87,13 @@ position: absolute;
 left: 10%;
 color: #47CCA0;
 
+
 `
 const MovieImage = styled.div`
 width: 100%;
 height: 45vh;
 img{
+    object-fit: contain;
     width: 100%;
     height: 100%;
 }
@@ -97,6 +111,21 @@ const MovieGenres = styled.div`
 const MovieCompanies = styled.div`
 `
 const MovieTrailer = styled.div`
+`
+const MovieProviders = styled.div`
+img{
+    width: 100%;
+    height: 100%;
+}
+p{
+    font-size: 2rem;
+    color: white;
+    
+}
+`
+const ProviderName = styled.div`
+`
+const ProviderImage = styled.div`
 `
 
 
