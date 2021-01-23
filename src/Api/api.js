@@ -18,7 +18,8 @@ export const TopRatedMovies = `https://api.themoviedb.org/3/movie/top_rated?api_
 export const upcomingMoviesApi = `https://api.themoviedb.org/3/movie/upcoming?api_key=7d01e2f21937769f340b6be2e4f1f146&language=en-US&page=1`;
 //GET MOVIE DEETAILS
 export const movieDetailApi = (movieId) => `https://api.themoviedb.org/3/movie/${movieId}?api_key=7d01e2f21937769f340b6be2e4f1f146&language=en-US`
-
+//GET MOVIE VIDEO
+export const movieVideoAPi = (movieId) => `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=7d01e2f21937769f340b6be2e4f1f146&language=en-US`
 
 
 //DODAC NAJLEPZE W DANYM GATUNKU!!

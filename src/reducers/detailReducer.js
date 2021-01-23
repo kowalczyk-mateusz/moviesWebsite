@@ -1,6 +1,9 @@
 const initialState ={
     movie: {
-        movie: [],
+        
+    },
+    video: {
+        video: [],
     },
     isLoading: true,
 }
@@ -11,6 +14,7 @@ const detailReducer = (state=initialState, action) =>{
             return{
                 ...state,
                 movie: action.payload.movie,
+                video: action.payload.video,
                 isLoading: false,
             }
             case 'LOAD_DETAIL':

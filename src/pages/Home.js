@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import {motion} from 'framer-motion'
 
 const Home = () =>{
+
+
     const dispatch = useDispatch();
     useEffect(()=>{
       dispatch(loadMovies());
@@ -51,7 +53,8 @@ display: grid;
 width: 80%;
 margin: 0 auto;
 margin-top: 5rem;
-grid-template-columns: repeat(4, 1fr);
-grid-gap: 1rem;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+grid-column-gap: 1rem;
+grid-row-gap: 3rem;
 `
 export default Home
