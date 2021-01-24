@@ -5,7 +5,7 @@ import { loadDetail } from '../actions/detailsActions';
 import {Link} from 'react-router-dom'
 const Movies = ({title,  image, id})=>{
 
-    const finalImage = `https://image.tmdb.org/t/p/w300${image}`
+    const finalImage = `https://image.tmdb.org/t/p/w500${image}`
 
     const dispatch = useDispatch()
 
