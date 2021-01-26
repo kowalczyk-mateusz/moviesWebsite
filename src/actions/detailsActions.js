@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {movieDetailApi, movieVideoAPi, movieProviderApi} from '../Api/api'
+import {movieDetailApi, movieVideoAPi, movieProviderApi, movieCreditsApi} from '../Api/api'
 
 export const loadDetail = (id) => async (dispatch) =>{
     dispatch({
@@ -8,14 +8,14 @@ export const loadDetail = (id) => async (dispatch) =>{
 
     const detailData = await axios.get(movieDetailApi(id))
     const videoData = await axios.get(movieVideoAPi(id));
-    const providerData = await axios.get(movieProviderApi(id));
+    const actorsData = await axios.get(movieCreditsApi(id));
 
     dispatch({
         type: "GET_DETAIL",
         payload: {
             movie: detailData.data,
             video: videoData.data.results[0].key,
-            provider: providerData.data.results.US.rent,
+            actors: actorsData.data.cast,
         }
     })
 }

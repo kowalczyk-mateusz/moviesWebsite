@@ -5,8 +5,8 @@ const initialState ={
     video: {
         video: [],
     },
-    provider: {
-        provider: [],
+    actors: {
+        actors: [],
     },
     isLoading: true,
 }
@@ -18,7 +18,7 @@ const detailReducer = (state=initialState, action) =>{
                 ...state,
                 movie: action.payload.movie,
                 video: action.payload.video,
-                provider: action.payload.provider,
+                actors: action.payload.actors,
                 isLoading: false,
             }
             case 'LOAD_DETAIL':

@@ -16,18 +16,33 @@ const SingleMovie = ()=>{
     
     }
 
-const {movie, video, isLoading, provider} = useSelector((state)=> state.detail)
+const {movie, video, isLoading, actors} = useSelector((state)=> state.detail)
 const finalImage = `https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`;
 
+
+const MovieInfo = styled.div`
+width: 100%;
+height: 90vh;
+background: url(${finalImage});
+background-size: cover;
+background-repeat: no-repeat;
+-webkit-box-shadow: inset 0px -200px 800px -19px rgba(0,0,0,1);
+-moz-box-shadow: inset 0px -300px 80px -19px rgba(0,0,0,1);
+box-shadow: inset 0px -300px 80px -19px rgba(0,0,0,1);
+display: flex;
+align-items: flex-end;
+color: white;
+padding: 0rem 12rem;
+font-family: 'Oswald', sans-serif;
+
+`
+
+//
 return(
     <>
 {!isLoading &&(
 <MovieCard className="shadow" onClick={exitMovieHandler}>
     <MovieDetail>
-            <MovieImage>
-                <img src={finalImage} alt={finalImage}/>
-                <div></div>
-            </MovieImage>
     <MovieInfo>
         <MoviePoster>
             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>
@@ -56,18 +71,18 @@ return(
                 )}
             </MovieCompanies>
             <MovieTrailer>
+                <div>
+                <Line/>
+                <h3>ZOBACZ ZWIASTUN</h3>
+                <Line/>
+                </div>
             <iframe src={`https://www.youtube.com/embed/${video}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title={video}></iframe>
-            </MovieTrailer>
-            {provider && (
-            <MovieProviders>
-                <ProviderName>
-            {provider.map((providers)=> <p>{providers.provider_name}</p>)}
-                </ProviderName>
-                <ProviderImage>
-                {provider.map((providers)=> <img src={`https://image.tmdb.org/t/p/w500${providers.logo_path}`} alt={providers.logo_path}/>)}
-                </ProviderImage>
-            </MovieProviders>
-            )}
+
+                </MovieTrailer>
+                    <MovieActors>
+               {actors.map((actor) => (<h1> actor.name</h1>))};
+                    </MovieActors>
+          
     </MovieDetail>
 </MovieCard>
 )}
@@ -75,58 +90,35 @@ return(
 )}
 
 const MovieCard = styled(motion.div)`
-position: fixed;
 width: 100%;
-height: 100vh;
-background-color: rgba(0,0,0,0.5);
-overflow: scroll;
+min-height: 100vh;
+background: rgba(0,0,0,0.5);
+position: fixed;
+overflow-y: scroll;
+z-index: 999;
 top: 0;
 left: 0;
-z-index: 50;
-overflow-x: hidden;
+&::-webkit-scrollbar{
+width: 0.5rem;
+}
+&::-webkit-scrollbar-thumb{
+background-color: #ff7676;
+}
+&::-webkit-scrollbar-track{
+background-color: white;
+}
 `
 const MovieDetail = styled.div`
 width: 80%;
-border-radius: 1rem;
-background: black;
 position: absolute;
 left: 10%;
-color: #47CCA0;
+z-index: 999;
+background: black;
 `
-const MovieImage = styled.div`
-width: 100%;
-height: 70vh;
-overflow: hidden;
-position: relative;
-div{
-    padding: 0;
-    position: absolute;
-    top: 0;
-    left: -10;
-    width: 100%;
-    height: 100%;
-    -webkit-box-shadow: inset 0px -164px 44px -19px rgba(0,0,0,0.99);
--moz-box-shadow: inset 0px -164px 44px -19px rgba(0,0,0,0.99);
-box-shadow: inset 0px -164px 44px -19px rgba(0,0,0,0.99);
-}
-img{
-    object-fit: cover;
-    width: 100%;
-    
-}
 
-`
-const MovieInfo = styled.div`
-width: 70%;
-position: absolute;
-height: 300px;
-top: 53%;
-left: 15%;
-display: flex;
-`
 const MoviePoster = styled.div`
-width: 50%;
-
+height: 300px;
+flex: 1;
 img{
     width: 100%;
     height: 100%;
@@ -134,36 +126,63 @@ img{
 }
 `
 const MovieOverview = styled.div`
-width: 50%;
+display: flex;
+flex: 1;
+height: 300px;
+flex-direction: column;
+justify-content: space-around;
+padding-left: 1rem;
 `
 const MovieTitle = styled.div`
+font-size: 1.5rem;
 `
 const MovieRating = styled.div`
+
 `
 const MovieDescription = styled.div`
+font-size: 0.8rem;
+font-weight: lighter;
 `
 const MovieReleaseDate = styled.div`
+font-size: 0.8rem;
+font-size: bold;
 `
 const MovieGenres = styled.div`
+
 `
 const MovieCompanies = styled.div`
 `
 const MovieTrailer = styled.div`
-`
-const MovieProviders = styled.div`
-img{
+width: 70%;
+margin: 0 auto;
+height: 300px;
+div{
+    display: flex;
+    align-items: center;
+}
+
+h3{
+    width: 20rem;
+    color: #47CCA0;
+    font-size: 2rem;
+    text-align: left;
+    display: inline-block;
+}
+iframe{
+    margin-top: 1rem;
     width: 100%;
     height: 100%;
+    border: 3px solid #47CCA0;
 }
-p{
-    font-size: 2rem;
-    color: white;
-    
-}
+
 `
-const ProviderName = styled.div`
+const Line = styled.div`
+width: calc(50% - 10rem);
+height: 1px;
+background: #47cca0;
 `
-const ProviderImage = styled.div`
+const MovieActors = styled.div`
+color: white;
 `
 
 
