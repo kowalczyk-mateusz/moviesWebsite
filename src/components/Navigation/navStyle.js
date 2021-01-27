@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
-<<<<<<< HEAD
 import {Link} from 'react-router-dom'
-=======
 
->>>>>>> 454438a4f9aebfa35152d3afeb09d223511d3a79
 export const NavBar = styled(motion.div)`
 width: 100%;
 height: 10vh;
@@ -63,11 +60,10 @@ input{
     }
 }
 `
-<<<<<<< HEAD
+
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: #47CCA0;
 
 `
-=======
->>>>>>> 454438a4f9aebfa35152d3afeb09d223511d3a79
+

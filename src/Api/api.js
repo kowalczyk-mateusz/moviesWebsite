@@ -24,10 +24,7 @@ export const movieVideoAPi = (movieId) => `https://api.themoviedb.org/3/movie/${
 export const movieProviderApi = (movieId) => `https://api.themoviedb.org/3/movie/${movieId}/watch/providers?api_key=7d01e2f21937769f340b6be2e4f1f146`
 //MOVIE CREDITS 
 export const movieCreditsApi = (movieId) => `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=7d01e2f21937769f340b6be2e4f1f146&language=en-US`
-<<<<<<< HEAD
 //TOP 20 MOVIES WITH GENRES
 export const topMovieGenres = (genreId) => `https://api.themoviedb.org/3/discover/movie?api_key=7d01e2f21937769f340b6be2e4f1f146&with_genres=${genreId}&sort_by=popularity.desc`
-=======
 //DODAC NAJLEPZE W DANYM GATUNKU!!
 
->>>>>>> 454438a4f9aebfa35152d3afeb09d223511d3a79
