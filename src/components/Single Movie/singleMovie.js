@@ -54,7 +54,11 @@ return(
                 <h2>{movie.original_title}</h2>
             </MovieTitle>
             <MovieRating>
+<<<<<<< HEAD
                 <p> Movie Rating: {movie.vote_average} </p>
+=======
+                <p> Movie Rating:{movie.vote_average} </p>
+>>>>>>> 454438a4f9aebfa35152d3afeb09d223511d3a79
             </MovieRating>
             <MovieDescription>
                 <p> {movie.overview} </p>
@@ -62,6 +66,7 @@ return(
             <MovieReleaseDate>
                 <p> Relase date: {movie.release_date} </p>
             </MovieReleaseDate>
+<<<<<<< HEAD
             <MovieGenres>
                 {movie.genres.map((genres) => <p key={genres.id}>{genres.name}</p>)}
             </MovieGenres>
@@ -70,6 +75,14 @@ return(
 
             <MovieCompanies>
                 <p>Companies: </p>
+=======
+            </MovieOverview>
+            </MovieInfo>
+            <MovieGenres>
+                {movie.genres.map((genres) => <p key={genres.id}>{genres.name}</p>)}
+            </MovieGenres>
+            <MovieCompanies>
+>>>>>>> 454438a4f9aebfa35152d3afeb09d223511d3a79
                 {movie.production_companies.map((companies)=>
                     <p key={companies.id}>{companies.name}</p>
                 )}
@@ -165,6 +178,7 @@ font-size: 0.8rem;
 font-size: bold;
 `
 const MovieGenres = styled.div`
+<<<<<<< HEAD
 display: flex;
 flex-wrap: wrap;
 justify-content: flex-start;
@@ -189,6 +203,11 @@ p{
     margin: 0.25rem 0.25rem;
 }
 
+=======
+
+`
+const MovieCompanies = styled.div`
+>>>>>>> 454438a4f9aebfa35152d3afeb09d223511d3a79
 `
 const MovieTrailer = styled.div`
 width: 70%;
