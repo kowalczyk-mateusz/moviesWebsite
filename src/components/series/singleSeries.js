@@ -55,12 +55,14 @@ const SingleSeries = ()=>{
                             </SeriesGenres>
                         </SeriesOverview>
                     </SeriesInfo>
-                    <Seasons>
+                    <SeasonsAndNetworks>
+                    <SeasonsAndNet>
         {series.seasons.map((season)=><div><p>{season.name}</p> <p>Episodes: {season.episode_count}</p></div>)}
-                    </Seasons>
+                    </SeasonsAndNetworks>
                     <Networks>
                         {series.networks.map((network)=><div><p key={network.id}>{network.name}</p> <img src={`https://image.tmdb.org/t/p/w300${network.logo_path}`} /></div>)}
                     </Networks>
+                    </SeasonsAndNetworks>
                     <SeriesTrailer>
                 <div>
                 <Line/>
@@ -144,6 +146,9 @@ p{
 
 }
 `
+const SeasonAndNetworks = styled.div`
+
+`
 const Seasons = styled.div`
 width: 70%;
 margin: 0 auto;
@@ -151,7 +156,11 @@ padding: 0;
 color: white;
 display: flex;
 flex-wrap: wrap;
+flex-direction: column;
 padding: 2rem 0rem;
+div{
+    display: flex;
+}
 p{
     margin: 0.25rem 0.25rem;
 }
