@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux';
-import { loadDetail } from '../actions/detailsActions';
+import { loadDetail } from '../../actions/detailsActions';
 import {Link} from 'react-router-dom'
 const Movies = ({title,  image, id})=>{
 
@@ -10,7 +10,6 @@ const Movies = ({title,  image, id})=>{
     const dispatch = useDispatch()
 
     const loadDetailhandler = ()=>{
-            document.body.style.overflow = 'hidden';
                 dispatch(loadDetail(id))
     }
     return(

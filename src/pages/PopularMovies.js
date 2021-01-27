@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {loadMovies} from '../actions/movieAction'
-import Movies from '../components/Movie'
+import Movies from '../components/Movie/Movie'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
 
-const Home = () =>{
+
+const PopularMovies = () =>{
 
 
     const dispatch = useDispatch();
@@ -57,4 +58,4 @@ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 grid-column-gap: 1rem;
 grid-row-gap: 3rem;
 `
-export default Home
+export default PopularMovies

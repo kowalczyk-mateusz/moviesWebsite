@@ -3,7 +3,7 @@ import {popularTvApi} from '../Api/api'
 
 //ACTIONS
 
-export const loadSeries = (id) => async (dispatch) =>{
+export const loadSeries = () => async (dispatch) =>{
     const popularData = await axios.get(popularTvApi)
 
     dispatch({

@@ -2,20 +2,11 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
-import {useHistory} from 'react-router-dom'
+
 import anonymo from '../../assets/images/anonymous.png'
+
 const SingleMovie = ()=>{
 
-    const history = useHistory()
-
-    const exitMovieHandler = (e) =>{
-        const element = e.target;
-        if(element.classList.contains('shadow')){
-            document.body.style.overflow = 'auto'
-            history.push('/');
-        }
-    
-    }
 
 const {movie, video, isLoading, actors} = useSelector((state)=> state.detail)
 const finalImage = `https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`;
@@ -43,7 +34,6 @@ font-family: 'Oswald', sans-serif;
 return(
     <>
 {!isLoading &&(
-<MovieCard className="shadow" onClick={exitMovieHandler}>
     <MovieDetail>
     <MovieInfo>
         <MoviePoster>
@@ -100,8 +90,8 @@ return(
                     </ActorsList>
           
     </MovieDetail>
-</MovieCard>
 )}
+
 </>
 )}
 
@@ -110,7 +100,6 @@ width: 100%;
 min-height: 100vh;
 background: rgba(0,0,0,0.5);
 position: fixed;
-overflow-y: scroll;
 z-index: 999;
 top: 0;
 left: 0;
@@ -125,10 +114,8 @@ background-color: white;
 }
 `
 const MovieDetail = styled.div`
-width: 80%;
-position: absolute;
-left: 10%;
-z-index: 999;
+width: 100%;
+min-height: 100vh;
 background: black;
 
 `

@@ -4,29 +4,36 @@ import Nav from './components/Navigation/nav'
 import styled from 'styled-components'
 import {Route, Switch, Router} from 'react-router-dom'
 import {useLocation} from 'react-router-dom';
-import SingleMovie from './components/Single Movie/singleMovie'
-import Home from './pages/Home'
 import Categories from './pages/Categories';
-import PopularTv from './pages/PopularTv'
+import PopularTvSeries from './pages/PopularTvSeries'
+import PopularMovies from './pages/PopularMovies'
+import DrawMovie from './pages/DrawMovie'
+import SingleMovie from './components/Movie/singleMovie';
 function App() {
   const location = useLocation()
   const pathId = location.pathname.split('/')[2];
   console.log(pathId);
   return (
     <Main>
+    <Nav />
+    <Switch location={location}  key={location.pathname}>
+          
+      <Route path={"/"} exact>
+        <PopularMovies/>
+      </Route>
+      <Route path='/PopularTvSeries'>
+        <PopularTvSeries/>
+      </Route>
+      <Route path="/Caregories">
+        <Categories/>
+      </Route>
+      <Route path="/movie/:id">
+        <SingleMovie />
+      </Route>
+      <Route path="/DrawMovie">
+        <DrawMovie/>
+      </Route>
 
-            <Nav />
-            <Switch location={location}  key={location.pathname}>
-            <Route path={["/movie/:id", "/"]} exact>
-            {pathId && <SingleMovie />}
-      <Home></Home>
-      </Route>
-      <Route path='/categories'>
-        <Categories />
-      </Route>
-      <Route path="/popularTvSeries">
-        <PopularTv/>
-      </Route>
       </Switch>
       </Main>
 )}
