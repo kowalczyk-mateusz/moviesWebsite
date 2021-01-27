@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {loadSeries} from '../actions/seriesAction'
 import styled from 'styled-components'
-import Series from '../components/Series'
+import Series from '../components/series/Series'
 const PopularTvSeries = () =>{
     const dispatch = useDispatch()
     useEffect(()=>{

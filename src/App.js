@@ -9,14 +9,13 @@ import PopularTvSeries from './pages/PopularTvSeries'
 import PopularMovies from './pages/PopularMovies'
 import DrawMovie from './pages/DrawMovie'
 import SingleMovie from './components/Movie/singleMovie';
+import SingleSeries from './components/series/singleSeries'
 function App() {
-  const location = useLocation()
-  const pathId = location.pathname.split('/')[2];
-  console.log(pathId);
+
   return (
     <Main>
     <Nav />
-    <Switch location={location}  key={location.pathname}>
+    <Switch>
           
       <Route path={"/"} exact>
         <PopularMovies/>
@@ -33,7 +32,9 @@ function App() {
       <Route path="/DrawMovie">
         <DrawMovie/>
       </Route>
-
+    <Route path="/series/:id">
+      <SingleSeries />
+    </Route>
       </Switch>
       </Main>
 )}

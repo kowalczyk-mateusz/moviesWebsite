@@ -2,6 +2,12 @@ const initialState = {
     series: {
             series: [],
     },
+    video: {
+        video: [],
+    },
+    credits: {
+        credits: [],
+    },
     isLoading: true,
 }
 
@@ -11,6 +17,8 @@ const detailTvReducer = (state=initialState, action)=>{
             return{
                 ...state,
                 series: action.payload.series,
+                video: action.payload.video,
+                credits: action.payload.credits,
                 isLoading: false,
             }
             case "LOAD_TVDETAIL":
