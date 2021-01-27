@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
 import {useHistory} from 'react-router-dom'
+import anonymo from '../../assets/images/anonymous.png'
 const SingleMovie = ()=>{
 
     const history = useHistory()
@@ -18,6 +19,7 @@ const SingleMovie = ()=>{
 
 const {movie, video, isLoading, actors} = useSelector((state)=> state.detail)
 const finalImage = `https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`;
+
 
 
 const MovieInfo = styled.div`
@@ -79,9 +81,21 @@ return(
             <iframe src={`https://www.youtube.com/embed/${video}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title={video}></iframe>
 
                 </MovieTrailer>
-                    <MovieActors>
-               {actors.map((actor) => (<h1> actor.name</h1>))};
-                    </MovieActors>
+
+                    <ActorsList>
+                    <h3>OBSADA</h3>
+                        {
+                        actors.map((actor)=>(
+                            <Actor>
+                                <img src={actor.profile_path === null ?   `${anonymo}` : `https://image.tmdb.org/t/p/w300/${actor.profile_path}`} />
+                                <ActorName>
+                        <p>{actor.name}</p>
+                        <p>{actor.character}</p>
+                                </ActorName>
+                            </Actor>
+                        ))
+                    }
+                    </ActorsList>
           
     </MovieDetail>
 </MovieCard>
@@ -114,6 +128,7 @@ position: absolute;
 left: 10%;
 z-index: 999;
 background: black;
+
 `
 
 const MoviePoster = styled.div`
@@ -164,8 +179,8 @@ div{
 h3{
     width: 20rem;
     color: #47CCA0;
-    font-size: 2rem;
-    text-align: left;
+    font-size: 1.5rem;
+    text-align: center;
     display: inline-block;
 }
 iframe{
@@ -181,9 +196,62 @@ width: calc(50% - 10rem);
 height: 1px;
 background: #47cca0;
 `
-const MovieActors = styled.div`
+const ActorsList = styled.div`
 color: white;
-`
+width: 80%;
+min-height: 100vh;
+display: flex;
+flex-wrap: wrap;
+display: flex;
+margin: 0 auto;
+margin-top: 10rem;
+justify-content: space-around;
+h3{
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #47cca0;
+}
 
+`
+const Actor = styled.div`
+width: 250px;
+height: 70px;
+display: flex;
+margin-top: 1rem;
+margin-bottom: 1rem;
+justify-content: space-around;
+transition: background-color 0.3s ease-in-out;
+&:hover{
+    background-color: rgba(71, 204, 160, 0.1)
+}
+img{
+    margin-left: 0.5rem;
+    display: block;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    align-self: center;
+}
+svg{
+    fill: #fff;
+}
+`
+const ActorName = styled.div`
+width: 100%;
+padding-left: 1rem;
+color: white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+    p:first-child{
+        font-size: 1.2rem;
+    }
+    p:last-child{
+        font-size: 0.8rem;
+    }
+`
 
 export default SingleMovie
