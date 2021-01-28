@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import {useSelector, useDispatch} from 'react-redux'
+import {loadSearch} from '../actions/searchAction'
 
 const Search = () =>{
+const searchId = 'superman'
+  const dispatch = useDispatch()
+
+    const loadSearchData = (event) => {
+        dispatch(loadSearch(searchId))
+        event.preventDefault();
+    }
+
     return(
         <SearchPage>
             <h2>Wyszukaj film, serial lub aktora</h2>
             <SearchInput>
                 <input type="text" placeholder='Wyszukaj film, serial lub aktora...' />
-                <button>Szukaj</button>
+                <button onClick={loadSearchData}>Szukaj</button>
             </SearchInput>
         </SearchPage>
     )
@@ -50,18 +60,18 @@ input{
     border-radius: 0.5rem;
     padding-left: 0.25rem;
     transition: all 0.3s;
-    &:focus{
-        border: 1px solid #47CCA0;
-        background-color:  #030B11;
-        ::placeholder{
-
-        color: #47CCA0;
-    }
-    }
     ::placeholder{
         font-weight: bold;
         color: #071621;
     }
+    &:focus{
+        border: 1px solid #47CCA0;
+        background-color:  #030B11;
+        
+        color: #47CCA0;
+
+    }
+
 }
 `
 
