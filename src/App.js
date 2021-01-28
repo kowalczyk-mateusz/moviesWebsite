@@ -2,8 +2,7 @@ import React from 'react'
 
 import Nav from './components/Navigation/nav'
 import styled from 'styled-components'
-import {Route, Switch, Router} from 'react-router-dom'
-import {useLocation} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom'
 import Categories from './pages/Categories';
 import PopularTvSeries from './pages/PopularTvSeries'
 import PopularMovies from './pages/PopularMovies'
@@ -23,7 +22,7 @@ function App() {
       <Route path='/PopularTvSeries'>
         <PopularTvSeries/>
       </Route>
-      <Route path="/Caregories">
+      <Route path="/Categories">
         <Categories/>
       </Route>
       <Route path="/movie/:id">

@@ -1,8 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import styled from 'styled-components'
-import {useHistory} from 'react-router-dom'
-import { movieCreditsApi } from '../../Api/api'
 import anonymo from '../../assets/images/anonymous.png'
 
 const SingleSeries = ()=>{
@@ -35,7 +33,7 @@ const SingleSeries = ()=>{
                 <SeriesDetail>
                     <SeriesInfo>
                         <SeriesPoster>
-                        <img src={`https://image.tmdb.org/t/p/w500${series.poster_path}`}/>
+                        <img src={`https://image.tmdb.org/t/p/w500${series.poster_path}`} alt={series.poster_path}/>
                         </SeriesPoster>
                         <SeriesOverview>
                             <SeriesTitle>
@@ -56,11 +54,12 @@ const SingleSeries = ()=>{
                         </SeriesOverview>
                     </SeriesInfo>
                     <SeasonsAndNetworks>
-                    <SeasonsAndNet>
-        {series.seasons.map((season)=><div><p>{season.name}</p> <p>Episodes: {season.episode_count}</p></div>)}
-                    </SeasonsAndNetworks>
+                    <Seasons>
+        {series.seasons.map((season)=><div><p>{season.name}: </p> <p>{season.episode_count} Episodes</p></div>)}
+                    </Seasons>
                     <Networks>
-                        {series.networks.map((network)=><div><p key={network.id}>{network.name}</p> <img src={`https://image.tmdb.org/t/p/w300${network.logo_path}`} /></div>)}
+                        <p>series available on </p>
+                        {series.networks.map((network)=><div><p key={network.id}>{network.name}</p> <img src={`https://image.tmdb.org/t/p/w300${network.logo_path}`} alt={network.logo_path} /></div>)}
                     </Networks>
                     </SeasonsAndNetworks>
                     <SeriesTrailer>
@@ -77,7 +76,7 @@ const SingleSeries = ()=>{
                         {
                         credits.map((actor)=>(
                             <Actor>
-                                <img src={actor.profile_path === null ?   `${anonymo}` : `https://image.tmdb.org/t/p/w300/${actor.profile_path}`} />
+                                <img src={actor.profile_path === null ?   `${anonymo}` : `https://image.tmdb.org/t/p/w300/${actor.profile_path}`} alt={actor.profile_path} />
                                 <ActorName>
                         <p>{actor.name}</p>
                         <p>{actor.character}</p>
@@ -146,8 +145,10 @@ p{
 
 }
 `
-const SeasonAndNetworks = styled.div`
-
+const SeasonsAndNetworks = styled.div`
+width: 70%;
+margin: 0 auto;
+display: flex;
 `
 const Seasons = styled.div`
 width: 70%;
@@ -158,16 +159,38 @@ display: flex;
 flex-wrap: wrap;
 flex-direction: column;
 padding: 2rem 0rem;
+flex: 1;
 div{
+    
     display: flex;
 }
 p{
     margin: 0.25rem 0.25rem;
 }
-
+p:first-child{
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+p:last-child{
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+}
 `
 const Networks = styled.div`
+padding: 2rem 0rem;
+flex: 2;
+display: flex;
+flex-direction: column;
+align-items: center;
+p{
+    color: white;
+}
+img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
 
+}
 `
 const SeriesTrailer = styled.div`
 width: 70%;

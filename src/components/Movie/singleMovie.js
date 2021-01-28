@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import {motion} from 'framer-motion'
 
 import anonymo from '../../assets/images/anonymous.png'
 
@@ -37,7 +36,7 @@ return(
     <MovieDetail>
     <MovieInfo>
         <MoviePoster>
-            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>
+            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.poster_path}/>
         </MoviePoster>
         <MovieOverview>
             <MovieTitle>
@@ -79,7 +78,7 @@ return(
                         {
                         actors.map((actor)=>(
                             <Actor>
-                                <img src={actor.profile_path === null ?   `${anonymo}` : `https://image.tmdb.org/t/p/w300/${actor.profile_path}`} />
+                                <img src={actor.profile_path === null ?   `${anonymo}` : `https://image.tmdb.org/t/p/w300/${actor.profile_path}`} alt={actor.profile_path}/>
                                 <ActorName>
                         <p>{actor.name}</p>
                         <p>{actor.character}</p>
