@@ -11,6 +11,7 @@ width: 100%;
     padding: 0;
     outline: 0;
     border: 0;
+    font-family: 'Oswald', sans-serif;
 }
 li{
     list-style: none;

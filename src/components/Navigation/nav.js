@@ -1,6 +1,6 @@
 
 import React from 'react'
-import {Logo, NavBar, Menu, Search, StyledLink} from './navStyle'
+import {Logo, NavBar, Menu, StyledLink} from './navStyle'
 
 const Nav = () =>{
     return (
@@ -14,11 +14,9 @@ const Nav = () =>{
                     <StyledLink to='/PopularTvSeries'><li>Popularne Seriale</li></StyledLink>
                     <StyledLink to='/Categories'><li>Kategorie</li></StyledLink>
                     <StyledLink to='/DrawMovie'><li>Wylosuj film na dzis!</li></StyledLink>
+                    <StyledLink to='/Search'><li>Szukaj filmu</li></StyledLink>
             </ul>
             </Menu>
-            <Search>
-                    <input type="text" placeholder="wyszukaj film lub serial"/>
-            </Search>
         </NavBar>
     )
 }

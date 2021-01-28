@@ -45,21 +45,6 @@ ul{
     
 }
 `
-export const Search = styled(motion.div)`
-flex: 1;
-input{
-    width: 70%;
-    padding: 0.5rem 0rem;
-    background-color:  #47CCA0;
-    font-size: 0.5rem;
-    padding-left: 0.25rem;
-    border-radius: 0.5rem;
-    
-    ::placeholder{
-        color: #071621;
-    }
-}
-`
 
 export const StyledLink = styled(Link)`
 text-decoration: none;

@@ -10,6 +10,7 @@ import DrawMovie from './pages/DrawMovie'
 import SingleMovie from './components/Movie/singleMovie';
 import SingleSeries from './components/series/singleSeries'
 import CategoriesMovie from './components/Categories/CategoriesMovie';
+import Search from './pages/Search'
 function App() {
 
   return (
@@ -37,6 +38,9 @@ function App() {
     </Route>
     <Route path="/Categories/List/:id">
       <CategoriesMovie/>
+    </Route>
+    <Route path="/Search">
+      <Search />
     </Route>
       </Switch>
       </Main>
