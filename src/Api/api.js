@@ -1,5 +1,4 @@
-//const apiKey = `7d01e2f21937769f340b6be2e4f1f146`;
-const movieName = 'dsada';
+const movieName = 's'
 //20 POPULAR MOVIES EVERYDAY
 export const popularApi = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_MOVIE_API}&page=1`;
 //SEARCH MOVIE
@@ -25,11 +24,12 @@ export const movieProviderApi = (movieId) => `https://api.themoviedb.org/3/movie
 //MOVIE CREDITS 
 export const movieCreditsApi = (movieId) => `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`
 //TOP 20 MOVIES WITH GENRES
-export const topMovieGenres = (genreId) => `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIE_API}&with_genres=${genreId}&sort_by=popularity.desc`
+export const topMovieGenres = (genreId) => `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIE_API}&with_genres=${genreId}&sort_by=vote_count.desc`
 //GET SERIES DETAILS
 export const seriesDetailApi = (seriesId)=>`https://api.themoviedb.org/3/tv/${seriesId}?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`
 //GET SERIES VIDEO 
 export const seriesVideoApi = (seriesId) => `https://api.themoviedb.org/3/tv/${seriesId}/videos?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`
 //GET SERIES CREDITS
-export const seriesCreditsApi = (seriesId) => `https://api.themoviedb.org/3/tv/${seriesId}/credits?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`
-
+export const seriesCreditsApi = (seriesId) => `https://api.themoviedb.org/3/tv/${seriesId}/aggregate_credits?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`
+//GET SERIES SEASON CREDITS
+export const seriesSeasonCreditsApi = (seriesId, seasonNr) => `https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNr}/credits?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`

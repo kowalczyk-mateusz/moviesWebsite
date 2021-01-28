@@ -16,7 +16,7 @@ const movieReducer = (state=initialState, action) =>{
                 popularMovies: action.payload.popularMovies,
                 upcomingMovies: action.payload.upcomingMovies,
                 movieGenres: action.payload.movieGenres,
-                movieGenresList: action.payload.movieGenres,
+                movieGenresList: action.payload.movieGenresList,
 
             }
             default: 

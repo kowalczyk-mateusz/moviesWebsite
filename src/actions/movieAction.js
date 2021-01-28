@@ -17,7 +17,7 @@ export const loadMovies = (id) => async (dispatch) =>{
             upcomingMovies: upcomingData.data,
 
             movieGenres: genresData.data.genres,
-            movieGenresList: genresListData.data,
+            movieGenresList: genresListData.data.results,
         },
     });
 

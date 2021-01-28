@@ -14,7 +14,7 @@ export const loadDetail = (id) => async (dispatch) =>{
         payload:{
             series: detailData.data,
             video: videoData.data.results[0].key,
-            credits: creditsData.data.cast
+            credits: creditsData.data.cast,
         }
     })
 }

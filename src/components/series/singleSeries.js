@@ -59,7 +59,7 @@ const SingleSeries = ()=>{
                     </Seasons>
                     <Networks>
                         <p>series available on </p>
-                        {series.networks.map((network)=><div><p key={network.id}>{network.name}</p> <img src={`https://image.tmdb.org/t/p/w300${network.logo_path}`} alt={network.logo_path} /></div>)}
+                        {series.networks.map((network)=><div><p key={network.id}>{network.name}</p></div>)}
                     </Networks>
                     </SeasonsAndNetworks>
                     <SeriesTrailer>
@@ -79,7 +79,7 @@ const SingleSeries = ()=>{
                                 <img src={actor.profile_path === null ?   `${anonymo}` : `https://image.tmdb.org/t/p/w300/${actor.profile_path}`} alt={actor.profile_path} />
                                 <ActorName>
                         <p>{actor.name}</p>
-                        <p>{actor.character}</p>
+                        <p>{actor.roles[0].character}</p>
                                 </ActorName>
                             </Actor>
                         ))

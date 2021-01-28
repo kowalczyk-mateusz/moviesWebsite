@@ -9,6 +9,7 @@ import PopularMovies from './pages/PopularMovies'
 import DrawMovie from './pages/DrawMovie'
 import SingleMovie from './components/Movie/singleMovie';
 import SingleSeries from './components/series/singleSeries'
+import CategoriesMovie from './components/Categories/CategoriesMovie';
 function App() {
 
   return (
@@ -22,7 +23,7 @@ function App() {
       <Route path='/PopularTvSeries'>
         <PopularTvSeries/>
       </Route>
-      <Route path="/Categories">
+      <Route path="/Categories" exact>
         <Categories/>
       </Route>
       <Route path="/movie/:id">
@@ -33,6 +34,9 @@ function App() {
       </Route>
     <Route path="/series/:id">
       <SingleSeries />
+    </Route>
+    <Route path="/Categories/List/:id">
+      <CategoriesMovie/>
     </Route>
       </Switch>
       </Main>
