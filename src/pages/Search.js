@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import styled from 'styled-components'
 import {useSelector, useDispatch} from 'react-redux'
 import {loadSearch} from '../actions/searchAction'
-import SingleSearch from '../components/Search/Search'
+
+import OneActor from '../components/Search/SingleActor'
+import OneMovie from '../components/Search/SingleMovie'
+import OneSeries from '../components/Search/SingleSeries'
 
 const Search = () =>{
-  const dispatch = useDispatch()
-
-
+    const dispatch = useDispatch()
     const [searchInput, setSearchInput] = useState('')
-    const {search} = useSelector((state)=> state.search)
+    const {searchMovie, searchSeries, searchActor} = useSelector((state)=> state.search)
     const inputHandler = (e) => {
         setSearchInput(e.target.value)
     }
+
     const loadSearchData = (event) => {
         event.preventDefault();
         if(searchInput.length===0){
@@ -31,22 +33,54 @@ const Search = () =>{
                 <input onChange={inputHandler} type="text" placeholder='Wyszukaj film, serial lub aktora...' />
                 <button onClick={loadSearchData}>Szukaj</button>
             </SearchInput>
-            {search.length ? (
-                                <SearchList>
+            <SearchData>
+            {searchMovie.length ? (
+                                <SearchMovie>
+                                    <h2>MOVIES</h2>
                                 {   
-                                       search.map((data)=><SingleSearch
+                                       searchMovie.map((data)=><OneMovie
                                            key={data.id}
-                                           name={data.name}
-                                           title={data.original_title}
-                                           image={data.profile_path}
-                                           poster={data.poster_path}
                                            id={data.id}
+                                           title={data.original_title}
+                                           image={data.poster_path}
                                        />)
                                        
                                    }
                                  
-                               </SearchList>
+                               </SearchMovie>
             ): ''}
+            {searchSeries.length ? (
+                                <SearchSeries>
+                                    <h2>TV SERIES</h2>
+                                {   
+                                       searchSeries.map((data)=><OneSeries
+                                       key={data.id}
+                                       id={data.id}
+                                        title={data.original_name}
+                                        image={data.poster_path}
+                                       />)
+                                       
+                                   }
+                                 
+                               </SearchSeries>
+            ): ''}
+
+            {searchActor.length ? (
+                                <SearchActor>
+                                    <h2>ACTORS</h2>
+                                {   
+                                       searchActor.map((data)=><OneActor
+                                       key={data.id}
+                                       id={data.id}
+                                       name={data.name}
+                                       image={data.profile_path}
+                                       />)
+                                       
+                                   }
+                                 
+                               </SearchActor>
+            ): ''}
+            </SearchData>
         </SearchPage>
     )
 }
@@ -56,7 +90,7 @@ const SearchPage = styled.div`
 h2{
     text-align: center;
     color: white;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     padding: 1rem 0rem;
 }
 `
@@ -65,10 +99,10 @@ width: 100%;
 display: flex;
 justify-content: center;
 button{
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem;
     margin-left: 0.5rem;
     border-radius: 0.5rem;
-    font-size: 0.5rem;
+    font-size: 1rem;
     color: #47CCA0;
     background-color: #030B11;
     border: 1px solid #47CCA0;
@@ -82,11 +116,11 @@ button{
 }
 input{
     width: 50%;
-    padding: 0.5rem 0rem;
+    padding: 1rem 0rem;
     background-color:  #47CCA0;
-    font-size: 0.5rem;
+    font-size: 1rem;
     border-radius: 0.5rem;
-    padding-left: 0.25rem;
+    padding-left: 1rem;
     transition: all 0.3s;
     ::placeholder{
         font-weight: bold;
@@ -102,15 +136,23 @@ input{
 
 }
 `
-
-const SearchList = styled.div`
-display: grid;
-width: 80%;
-margin: 0 auto;
-margin-top: 5rem;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-grid-column-gap: 1rem;
-grid-row-gap: 3rem;
+const SearchData = styled.div`
+display: flex;
+`
+const SearchMovie = styled.div`
+h2{
+    font-size: 2rem;
+    text-align: center;
+}
+flex: 1;
+`
+const SearchActor = styled.div`
+flex: 1;
+h2{font-size: 2rem}
+`
+const SearchSeries = styled.div`
+flex: 1;
+h2{font-size: 2rem}
 `
 
 export default Search

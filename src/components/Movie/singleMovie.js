@@ -77,7 +77,7 @@ return(
                     <h3>OBSADA</h3>
                         {
                         actors.map((actor)=>(
-                            <Actor>
+                            <Actor key={actor.id}>
                                 <img src={actor.profile_path === null ?   `${anonymo}` : `https://image.tmdb.org/t/p/w300/${actor.profile_path}`} alt={actor.profile_path}/>
                                 <ActorName>
                         <p>{actor.name}</p>
@@ -103,7 +103,7 @@ background: black;
 `
 
 const MoviePoster = styled.div`
-height: 300px;
+height: 400px;
 flex: 1;
 img{
     width: 100%;
@@ -114,7 +114,7 @@ img{
 const MovieOverview = styled.div`
 display: flex;
 flex: 1;
-height: 300px;
+height: 400px;
 flex-direction: column;
 justify-content: space-around;
 padding-left: 1rem;

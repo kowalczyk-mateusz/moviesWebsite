@@ -1,4 +1,3 @@
-const movieName = 's'
 //20 POPULAR MOVIES EVERYDAY
 export const popularApi = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_MOVIE_API}&page=1`;
 //POPULAR TV SERIES
@@ -31,5 +30,7 @@ export const seriesVideoApi = (seriesId) => `https://api.themoviedb.org/3/tv/${s
 export const seriesCreditsApi = (seriesId) => `https://api.themoviedb.org/3/tv/${seriesId}/aggregate_credits?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`
 //GET SERIES SEASON CREDITS
 export const seriesSeasonCreditsApi = (seriesId, seasonNr) => `https://api.themoviedb.org/3/tv/${seriesId}/season/${seasonNr}/credits?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`
-//SEARCH MOVIE
-export const searchMovieApi = (searchId) => `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US&page=1&include_adult=false&query=${searchId}`
+//SEARCH MOVIE/SERIES AND ACTORS
+export const searchMovieApi = (searchId) => `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US&page=1&include_adult=false&query=${searchId}`
+export const searchActorApi = (searchId) => `https://api.themoviedb.org/3/search/person?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US&page=1&include_adult=false&query=${searchId}`
+export const searchSeriesApi = (searchId) => `https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US&page=1&include_adult=false&query=${searchId}`

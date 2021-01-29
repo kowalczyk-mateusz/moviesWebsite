@@ -10,7 +10,6 @@ const PopularTvSeries = () =>{
     }, [dispatch])
 
     const {popularSeries} = useSelector((state)=>state.series)
-        console.log(popularSeries)
     return(
         <HomePage>
             <h2>Top 20 seriali dzisiaj</h2>

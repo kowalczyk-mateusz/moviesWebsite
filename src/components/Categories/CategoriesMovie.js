@@ -14,7 +14,6 @@ const CategoriesMovie = ()=>{
     dispatch(loadMovies(locationId));
   },[dispatch])
   const {movieGenresList} = useSelector((state) => state.movies)
-  console.log(movieGenresList)
     return(
       <HomePage>
 

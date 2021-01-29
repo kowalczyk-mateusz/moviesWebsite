@@ -1,6 +1,12 @@
 const initialState = {
-    search: {
+    searchMovie: {
         search: [],
+    },
+    searchActor: {
+        searchActor: [],
+    },
+    searchSeries: {
+        searchSeries: [],
     },
 
 }
@@ -10,7 +16,9 @@ const searchReducer = (state=initialState, action) =>{
         case "FETCH_SEARCH":
             return{
                 ...state,
-                search: action.payload.search,
+                searchMovie: action.payload.searchMovie,
+                searchActor: action.payload.searchActor,
+                searchSeries: action.payload.searchSeries,
                 isLoading: false,
             }
 
