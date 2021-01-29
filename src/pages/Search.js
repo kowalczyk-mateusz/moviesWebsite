@@ -1,24 +1,52 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import {useSelector, useDispatch} from 'react-redux'
 import {loadSearch} from '../actions/searchAction'
+import SingleSearch from '../components/Search/Search'
 
 const Search = () =>{
-const searchId = 'superman'
   const dispatch = useDispatch()
 
+
+    const [searchInput, setSearchInput] = useState('')
+    const {search} = useSelector((state)=> state.search)
+    const inputHandler = (e) => {
+        setSearchInput(e.target.value)
+    }
     const loadSearchData = (event) => {
-        dispatch(loadSearch(searchId))
         event.preventDefault();
+        if(searchInput.length===0){
+            return null;
+        }
+        else{
+            dispatch(loadSearch(searchInput))
+            setSearchInput('')
+        }
     }
 
     return(
         <SearchPage>
             <h2>Wyszukaj film, serial lub aktora</h2>
             <SearchInput>
-                <input type="text" placeholder='Wyszukaj film, serial lub aktora...' />
+                <input onChange={inputHandler} type="text" placeholder='Wyszukaj film, serial lub aktora...' />
                 <button onClick={loadSearchData}>Szukaj</button>
             </SearchInput>
+            {search.length ? (
+                                <SearchList>
+                                {   
+                                       search.map((data)=><SingleSearch
+                                           key={data.id}
+                                           name={data.name}
+                                           title={data.original_title}
+                                           image={data.profile_path}
+                                           poster={data.poster_path}
+                                           id={data.id}
+                                       />)
+                                       
+                                   }
+                                 
+                               </SearchList>
+            ): ''}
         </SearchPage>
     )
 }
@@ -73,6 +101,16 @@ input{
     }
 
 }
+`
+
+const SearchList = styled.div`
+display: grid;
+width: 80%;
+margin: 0 auto;
+margin-top: 5rem;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+grid-column-gap: 1rem;
+grid-row-gap: 3rem;
 `
 
 export default Search

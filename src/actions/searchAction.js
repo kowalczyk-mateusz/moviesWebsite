@@ -14,7 +14,7 @@ export const loadSearch= (searchId) => async (dispatch) =>{
     dispatch({
         type: "FETCH_SEARCH",
         payload: {
-            search: searchData,
+            search: searchData.data.results,
         }
     })
 }
