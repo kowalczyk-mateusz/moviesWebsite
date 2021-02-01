@@ -3,17 +3,17 @@ const initialState = {
         movie: [],
     },
     latest: {
-        latest: [],
+
     },
-    isLoading: true,
 }
 
-const randomMovieReducer = (state=initialState, action) =>{
+const randomReducer = (state=initialState, action)=>{
     switch(action.type){
-        case "GET_DETAIL":
+        case "FETCH_RANDOM":
             return{
                 ...state,
                 movie: action.payload.movie,
+                latest: action.payload.latest,
                 isLoading: false,
             }
         case "LOAD_DETAIL":
@@ -22,10 +22,9 @@ const randomMovieReducer = (state=initialState, action) =>{
                 isLoading: true,
             }
         default: 
-            return{
-                ...state
-            }
+        return{...state}
     }
+
 }
 
-export default randomMovieReducer
+export default randomReducer
