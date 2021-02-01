@@ -9,7 +9,6 @@ const SingleSeries = ()=>{
     const {series, isLoading, video, credits} = useSelector((state)=> state.seriesDetail)
 
     const finalImage = `https://image.tmdb.org/t/p/w1280/${series.backdrop_path}`;
-
     const SeriesInfo = styled.div`
     width: 100%;
     height: 90vh;
@@ -68,8 +67,9 @@ const SingleSeries = ()=>{
                 <h3>ZOBACZ ZWIASTUN</h3>
                 <Line/>
                 </div>
-            <iframe src={`https://www.youtube.com/embed/${video}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title={video}></iframe>
-
+                {video &&(
+                    <iframe src={`https://www.youtube.com/embed/${video[0].key}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title={video[0].key}></iframe>
+                )}
                 </SeriesTrailer>
                 <ActorsList>
                     <h3>OBSADA</h3>

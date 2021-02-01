@@ -13,7 +13,7 @@ export const loadDetail = (id) => async (dispatch) =>{
         type: "GET_TVDETAIL",
         payload:{
             series: detailData.data,
-            video: videoData.data.results[0].key,
+            video: videoData.data.results,
             credits: creditsData.data.cast,
         }
     })

@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import questionMark from '../../assets/images/questionMark.png'
 import {Search} from './SearchStyles'
 import {Link} from 'react-router-dom'

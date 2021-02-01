@@ -69,8 +69,9 @@ return(
                 <h3>ZOBACZ ZWIASTUN</h3>
                 <Line/>
                 </div>
-            <iframe src={`https://www.youtube.com/embed/${video}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title={video}></iframe>
-
+                    {video[0] === null &&(
+                    <iframe src={`https://www.youtube.com/embed/${video[0].key}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title={video}></iframe>
+                    )}
                 </MovieTrailer>
 
                     <ActorsList>
