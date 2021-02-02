@@ -1,8 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-
+import { useDispatch } from 'react-redux'
 import anonymo from '../../assets/images/anonymous.png'
+import {loadActorDetail} from '../../actions/actorsDetailsAction'
+import  {Link} from 'react-router-dom'
+import Actor from '../Actors/Actor'
 
 const SingleMovie = ()=>{
 
@@ -10,6 +13,7 @@ const SingleMovie = ()=>{
 const {movie, video, isLoading, actors} = useSelector((state)=> state.detail)
 const finalImage = `https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`;
 
+const dispatch = useDispatch()
 
 
 const MovieInfo = styled.div`
@@ -69,24 +73,27 @@ return(
                 <h3>ZOBACZ ZWIASTUN</h3>
                 <Line/>
                 </div>
-                    {video[0] === null &&(
-                    <iframe src={`https://www.youtube.com/embed/${video[0].key}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title={video}></iframe>
-                    )}
+                {video &&(
+                    <iframe src={`https://www.youtube.com/embed/${video[0].key}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title={video[0].key}></iframe>
+                )}
                 </MovieTrailer>
 
                     <ActorsList>
                     <h3>OBSADA</h3>
+                    <ActorsBox>
                         {
-                        actors.map((actor)=>(
-                            <Actor key={actor.id}>
-                                <img src={actor.profile_path === null ?   `${anonymo}` : `https://image.tmdb.org/t/p/w300/${actor.profile_path}`} alt={actor.profile_path}/>
-                                <ActorName>
-                        <p>{actor.name}</p>
-                        <p>{actor.character}</p>
-                                </ActorName>
-                            </Actor>
+                        actors.map((actor)=>(<Actor
+                                    id={actor.id}
+                                    key={actor.id}
+                                    name={actor.name}
+                                    image={actor.profile_path}
+                                />
+                    
+
+
                         ))
                     }
+                    </ActorsBox>
                     </ActorsList>
           
     </MovieDetail>
@@ -165,7 +172,7 @@ p{
 const MovieTrailer = styled.div`
 width: 70%;
 margin: 0 auto;
-height: 300px;
+height: 350px;
 div{
     display: flex;
     align-items: center;
@@ -179,8 +186,10 @@ h3{
     display: inline-block;
 }
 iframe{
-    margin-top: 1rem;
-    width: 100%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 50%;
+    display: block;
     height: 100%;
     border: 3px solid #47CCA0;
 }
@@ -192,61 +201,25 @@ height: 1px;
 background: #47cca0;
 `
 const ActorsList = styled.div`
-color: white;
+padding-top: 10rem;
 width: 80%;
-min-height: 100vh;
-display: flex;
-flex-wrap: wrap;
-display: flex;
 margin: 0 auto;
-margin-top: 10rem;
-justify-content: space-around;
 h3{
-    width: 100%;
+    min-width: 100%;
     display: block;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #47cca0;
 }
+`
 
-`
-const Actor = styled.div`
-width: 250px;
-height: 70px;
-display: flex;
-margin-top: 1rem;
-margin-bottom: 1rem;
-justify-content: space-around;
-transition: background-color 0.3s ease-in-out;
-&:hover{
-    background-color: rgba(71, 204, 160, 0.1)
-}
-img{
-    margin-left: 0.5rem;
-    display: block;
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    align-self: center;
-}
-svg{
-    fill: #fff;
-}
-`
-const ActorName = styled.div`
+const ActorsBox = styled.div`
+display: grid;
 width: 100%;
-padding-left: 1rem;
-color: white;
-display: flex;
-flex-direction: column;
-justify-content: center;
-    p:first-child{
-        font-size: 1.2rem;
-    }
-    p:last-child{
-        font-size: 0.8rem;
-    }
+margin-top: 2rem;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+grid-column-gap: 1rem;
+grid-row-gap: 3rem;
 `
 
 export default SingleMovie

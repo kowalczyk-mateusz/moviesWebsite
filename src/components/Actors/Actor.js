@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import {loadActorDetail} from '../../actions/actorsDetailsAction'
 import { useDispatch } from 'react-redux'
+import anonymo from '../../assets/images/anonymous.png'
 const Actor = ({id, name, image}) =>{
-    const finalImage = `https://image.tmdb.org/t/p/w300${image}`
     const dispatch = useDispatch()
     const loadDetailHandler = () =>{
         dispatch(loadActorDetail(id))
@@ -14,7 +14,7 @@ const Actor = ({id, name, image}) =>{
     <StyledActor onClick={loadDetailHandler}>
         <Link to={`/actor/${id}`}>
             <h1>{name}</h1>
-            <img src={finalImage} alt={name}/>
+            <img src={image === null ?   `${anonymo}` : `https://image.tmdb.org/t/p/w300/${image}`} alt={image}/>
 
         </Link>
     </StyledActor>
