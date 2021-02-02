@@ -11,6 +11,7 @@ import SingleMovie from './components/Movie/singleMovie';
 import SingleSeries from './components/series/singleSeries'
 import CategoriesMovie from './components/Categories/CategoriesMovie';
 import Search from './pages/Search'
+import SingleActor from './components/Actors/SingleActor';
 function App() {
 
   return (
@@ -41,6 +42,9 @@ function App() {
     </Route>
     <Route path="/Search">
       <Search />
+    </Route>
+    <Route path="/actor/:id">
+      <SingleActor/>
     </Route>
       </Switch>
       </Main>
