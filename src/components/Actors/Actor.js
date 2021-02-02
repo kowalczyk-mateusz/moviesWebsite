@@ -2,19 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 const Actor = ({id, name, image}) =>{
-    const finalImage = `https://image.tmdb.org/t/p/w500${image}`
+    const finalImage = `https://image.tmdb.org/t/p/w300${image}`
     return(
-    <Actor>
+    <StyledActor>
         <Link to={`/actor/${id}`}>
             <h1>{name}</h1>
             <img src={finalImage} alt={name}/>
 
         </Link>
-    </Actor>
+    </StyledActor>
     )
 }
 
-const Movie = styled.div`
+const StyledActor = styled.div`
 width: 100%;
 max-height: 250px;
 overflow: hidden;

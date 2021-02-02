@@ -24,7 +24,7 @@ const Actors = () =>{
                 id={actor.id}
                 key={actor.id}
                 name={actor.name}
-                image={actor.image_path}
+                image={actor.profile_path}
             />
 
             )}
