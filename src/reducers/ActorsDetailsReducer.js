@@ -1,5 +1,6 @@
 const initialState = {
     actor: [],
+    video: [],
 }
 
 const actorsDetailsAction = (state=initialState, action) => {
@@ -8,6 +9,7 @@ const actorsDetailsAction = (state=initialState, action) => {
         return{
             ...state,
             actor: action.payload.actor,
+            video: action.payload.video,
         }
         default: 
         return{

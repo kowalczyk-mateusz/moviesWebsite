@@ -40,3 +40,5 @@ export const latestMovieApi = `https://api.themoviedb.org/3/movie/latest?api_key
 export const popularActorsApi = `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US&page=1`
 //GET ACTOR DETAILS
 export const actorDetailApi =(actorId) => `https://api.themoviedb.org/3/person/${actorId}?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`
+//GET ACTOR MOVIES
+export const actorMoviesApi = (actorId) => `https://api.themoviedb.org/3/person/${actorId}/movie_credits?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`
