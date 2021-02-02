@@ -4,7 +4,7 @@ import detailReducer from '../reducers/detailReducer'
 import seriesReducer from '../reducers/SeriesReducer'
 import detailTvReducer from '../reducers/detailTvReducer'
 import searchReducer from '../reducers/searchReducer'
-import randomReducer from '../reducers/randomReducer'
+import actorsReducer from '../reducers/actorsReducer'
 
 const rootReducer = combineReducers({
     movies: movieReducer,
@@ -12,6 +12,6 @@ const rootReducer = combineReducers({
     series: seriesReducer,
     seriesDetail: detailTvReducer,
     search: searchReducer,
-    randomMovie: randomReducer,
+    actorsList: actorsReducer,
 })
 export default rootReducer

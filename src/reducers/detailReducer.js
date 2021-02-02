@@ -1,13 +1,7 @@
 const initialState ={
-    movie: {
-        
-    },
-    video: {
-        video: [],
-    },
-    actors: {
-        actors: [],
-    },
+    movie: [],
+    video: [],
+    actors: [],
     isLoading: true,
 }
 

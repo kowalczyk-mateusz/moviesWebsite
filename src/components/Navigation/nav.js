@@ -13,7 +13,7 @@ const Nav = () =>{
                     <StyledLink to='/'><li>Popularne Filmy</li></StyledLink>
                     <StyledLink to='/PopularTvSeries'><li>Popularne Seriale</li></StyledLink>
                     <StyledLink to='/Categories'><li>Kategorie</li></StyledLink>
-                    <StyledLink to='/DrawMovie'><li>Wylosuj film na dzis!</li></StyledLink>
+                    <StyledLink to='/Actors'><li>Aktorzy</li></StyledLink>
                     <StyledLink to='/Search'><li>Szukaj filmu</li></StyledLink>
             </ul>
             </Menu>

@@ -6,7 +6,7 @@ import {Route, Switch} from 'react-router-dom'
 import Categories from './pages/Categories';
 import PopularTvSeries from './pages/PopularTvSeries'
 import PopularMovies from './pages/PopularMovies'
-import DrawMovie from './pages/DrawMovie'
+import Actors from './pages/Actors'
 import SingleMovie from './components/Movie/singleMovie';
 import SingleSeries from './components/series/singleSeries'
 import CategoriesMovie from './components/Categories/CategoriesMovie';
@@ -30,8 +30,8 @@ function App() {
       <Route path="/movie/:id">
         <SingleMovie />
       </Route>
-      <Route path="/DrawMovie">
-        <DrawMovie/>
+      <Route path="/Actors">
+        <Actors/>
       </Route>
     <Route path="/series/:id">
       <SingleSeries />

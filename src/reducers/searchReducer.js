@@ -1,13 +1,7 @@
 const initialState = {
-    searchMovie: {
-        search: [],
-    },
-    searchActor: {
-        searchActor: [],
-    },
-    searchSeries: {
-        searchSeries: [],
-    },
+    searchMovie: [],
+    searchActor: [],
+    searchSeries: [],
 
 }
 

@@ -1,13 +1,7 @@
 const initialState = {
-    series: {
-            series: [],
-    },
-    video: {
-        video: [],
-    },
-    credits: {
-        credits: [],
-    },
+    series: [],
+    video: [],
+    credits: [],
     isLoading: true,
 }
 
