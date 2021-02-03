@@ -221,9 +221,25 @@ const ActorsBox = styled.div`
 display: grid;
 width: 100%;
 margin-top: 2rem;
+height: 80vh;
+overflow-y: scroll;
 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 grid-column-gap: 1rem;
 grid-row-gap: 3rem;
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #47cca0;
+}
+
+
 `
 
 export default SingleMovie

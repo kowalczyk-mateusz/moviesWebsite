@@ -9,7 +9,7 @@ export const loadActorDetail = (id) => async (dispatch) =>{
         type: "FETCH_ACTOR",
         payload: {
             actor: actorData.data,
-            video: videoData.data.cast
+            video: videoData.data,
         }
     })
 

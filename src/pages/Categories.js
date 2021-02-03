@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {useSelector, useDispatch} from 'react-redux'
 import {loadMovies} from '../actions/movieAction'
 import {Link} from 'react-router-dom'
-import CategoriesMovie from '../components/Categories/CategoriesMovie'
+
 const Categories = () =>{
     const dispatch = useDispatch();
     useEffect(()=>{
@@ -17,7 +17,7 @@ return(
 
                         {
                             movieGenres.map((genres)=>
-                            <Link id={genres.id} genrename={genres.name} to={`/Categories/List/${genres.id}`}><Genre key={genres.id} id={genres.id}>{genres.name}</Genre></Link>
+                            <Link id={genres.id} to={`/Categories/${genres.name}/${genres.id}`}><Genre key={genres.id} id={genres.id}>{genres.name}</Genre></Link>
                         )}
         </CategoriesList>
        </Main>

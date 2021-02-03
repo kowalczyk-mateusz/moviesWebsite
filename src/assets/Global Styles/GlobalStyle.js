@@ -3,7 +3,17 @@ import {createGlobalStyle} from 'styled-components'
 export const GlobalStyles = createGlobalStyle`
 body{
 width: 100%;
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
 
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #47cca0;
+}
 }
 *, ::before, ::after{
     box-sizing: border-box;

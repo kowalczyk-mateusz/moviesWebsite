@@ -23,7 +23,7 @@ const Actor = ({id, name, image}) =>{
 
 const StyledActor = styled.div`
 width: 100%;
-max-height: 250px;
+height: 250px;
 overflow: hidden;
 justify-content: space-between;
 cursor: pointer;

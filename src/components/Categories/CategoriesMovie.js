@@ -6,9 +6,10 @@ import Movies from '../../components/Movie/Movie'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
 const CategoriesMovie = ()=>{
-  const {id, genrename} = useParams()
-  console.log(id)
-  console.log(genrename)
+  const {id, genreName} = useParams()
+
+
+
 
 
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const CategoriesMovie = ()=>{
     return(
       <HomePage>
 
-    <h2>Top 20 filmów z kategorii {genrename}</h2>
+    <h2>Top 20 filmów z kategorii {genreName}</h2>
       {movieGenresList&&(
 
       <MoviesList>

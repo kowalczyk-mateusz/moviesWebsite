@@ -33,7 +33,7 @@ const SingleActor = ( )=>{
             <ActorMovies>
                 <h2>Actor:</h2>
                 <MoviesList>
-                    {video.map((movie)=><Movie 
+                    {video.cast.map((movie)=><Movie 
                         key={movie.id}
                         title={movie.original_title}
                         release={movie.release_date}
@@ -43,6 +43,22 @@ const SingleActor = ( )=>{
                         rating={movie.vote_average}
                     />)}
                 </MoviesList>
+            </ActorMovies>
+            <ActorMovies>
+                <h2>Crew:</h2>
+                {video.crew &&(
+                <MoviesList>
+                    {video.crew.map((movie)=><Movie 
+                        key={movie.id}
+                        title={movie.original_title}
+                        release={movie.release_date}
+                        image={movie.poster_path}
+                        overview={movie.overview}
+                        id={movie.id}
+                        rating={movie.vote_average}
+                    />)}
+                </MoviesList>
+                )}
             </ActorMovies>
         </StyledActor>
     )

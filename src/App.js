@@ -37,8 +37,8 @@ function App() {
     <Route path="/series/:id">
       <SingleSeries />
     </Route>
-    <Route path="/Categories/List/:id">
-      <CategoriesMovie/>
+    <Route path="/Categories/:genreName/:id" component={CategoriesMovie}>
+
     </Route>
     <Route path="/Search">
       <Search />
