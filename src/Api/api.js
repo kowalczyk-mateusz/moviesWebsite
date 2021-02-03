@@ -1,9 +1,9 @@
 //20 POPULAR MOVIES EVERYDAY
 export const popularApi = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_MOVIE_API}&page=1`;
 //POPULAR TV SERIES
-export const popularTvApi = `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.REACT_APP_MOVIE_API}` //DAY
+export const popularTvApi= (pageNumber) => `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.REACT_APP_MOVIE_API}&page=${pageNumber}` //DAY
 //POPULAR MOVIE
-export const popularMovieApi = `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_MOVIE_API}`;
+export const popularMovieApi = (pageNumber) => `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_MOVIE_API}&page=${pageNumber}`;
 //GET MOVIES GENRE
 export const MovieGenreApi = `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`;
 //GET TV GENRE 

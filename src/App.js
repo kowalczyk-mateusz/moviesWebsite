@@ -19,7 +19,7 @@ function App() {
     <Nav />
     <Switch>
           
-      <Route path={"/"} exact>
+      <Route path="/PopularMovies" exact>
         <PopularMovies/>
       </Route>
       <Route path='/PopularTvSeries'>

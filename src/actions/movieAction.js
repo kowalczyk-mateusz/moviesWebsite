@@ -5,7 +5,7 @@ import {popularMovieApi, upcomingMoviesApi, MovieGenreApi, topMovieGenres} from 
 
 export const loadMovies = (id) => async (dispatch) =>{
 
-    const popularData = await axios.get(popularMovieApi);
+    const popularData = await axios.get(popularMovieApi(id));
     const upcomingData = await axios.get(upcomingMoviesApi);
     const genresData = await axios.get(MovieGenreApi)
     const genresListData = await axios.get(topMovieGenres(id))

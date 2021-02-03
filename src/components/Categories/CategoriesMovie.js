@@ -1,23 +1,25 @@
 import React,{useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {loadMovies} from '../../actions/movieAction'
-import {useLocation} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import Movies from '../../components/Movie/Movie'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
 const CategoriesMovie = ()=>{
-  const location = useLocation()
-  const locationId = location.pathname.split('/')[3];
+  const {id, genrename} = useParams()
+  console.log(id)
+  console.log(genrename)
+
 
   const dispatch = useDispatch();
   useEffect(()=>{
-    dispatch(loadMovies(locationId));
+    dispatch(loadMovies(id));
   },[dispatch])
   const {movieGenresList} = useSelector((state) => state.movies)
     return(
       <HomePage>
 
-    <h2>Top 20 filmów</h2>
+    <h2>Top 20 filmów z kategorii {genrename}</h2>
       {movieGenresList&&(
 
       <MoviesList>

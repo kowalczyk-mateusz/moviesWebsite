@@ -17,7 +17,7 @@ return(
 
                         {
                             movieGenres.map((genres)=>
-                            <Link id={genres.id} to={`/Categories/List/${genres.id}`}><Genre key={genres.id} id={genres.id}>{genres.name}</Genre></Link>
+                            <Link id={genres.id} genrename={genres.name} to={`/Categories/List/${genres.id}`}><Genre key={genres.id} id={genres.id}>{genres.name}</Genre></Link>
                         )}
         </CategoriesList>
        </Main>
