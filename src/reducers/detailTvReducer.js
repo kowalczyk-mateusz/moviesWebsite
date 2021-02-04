@@ -2,6 +2,7 @@ const initialState = {
     series: [],
     video: [],
     credits: [],
+    similar: [],
     isLoading: true,
 }
 
@@ -13,6 +14,7 @@ const detailTvReducer = (state=initialState, action)=>{
                 series: action.payload.series,
                 video: action.payload.video,
                 credits: action.payload.credits,
+                similar: action.payload.similar,
                 isLoading: false,
             }
             case "LOAD_TVDETAIL":

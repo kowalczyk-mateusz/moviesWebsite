@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {actorDetailApi, actorMoviesApi} from '../Api/api'
+import {actorDetailApi, actorMoviesApi, similarTvSeriesApi} from '../Api/api'
 
 
 export const loadActorDetail = (id) => async (dispatch) =>{

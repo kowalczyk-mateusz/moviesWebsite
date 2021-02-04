@@ -14,6 +14,6 @@ const rootReducer = combineReducers({
     seriesDetail: detailTvReducer,
     search: searchReducer,
     actorsList: actorsReducer,
-    actorDetails: actorsDetailsAction
+    actorDetails: actorsDetailsAction,
 })
 export default rootReducer

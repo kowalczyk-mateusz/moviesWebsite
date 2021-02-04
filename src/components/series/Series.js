@@ -46,4 +46,5 @@ h1{
     z-index: 4;
 }
 `
+
 export default Series

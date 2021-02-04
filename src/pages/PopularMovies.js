@@ -6,11 +6,11 @@ import styled from 'styled-components'
 import {motion} from 'framer-motion'
 
 
-const PopularMovies = () =>{
+const PopularMovies = ({pageNumber, setPageNumber}) =>{
 
-    const [pageNumber, setPageNumber] = useState(1);
     const nextPageHandler = () =>{
 
+        window.scrollTo(0, 0);
         if(pageNumber === 10){
             setPageNumber(1)
         }
@@ -19,6 +19,7 @@ const PopularMovies = () =>{
         }
     }
     const previousPageHandler = ( )=>{
+        window.scrollTo(0, 0);
         if(pageNumber === 1){
             setPageNumber(10)
         }

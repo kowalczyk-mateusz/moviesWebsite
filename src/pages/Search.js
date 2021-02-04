@@ -85,6 +85,7 @@ const Search = () =>{
     )
 }
 const SearchPage = styled.div`
+    min-height: 100vh;
     width: 80%;
     margin: 0 auto;
 h2{
@@ -135,9 +136,26 @@ input{
     }
 
 }
+@media (max-width: 850px){
+    flex-direction: column;
+    input{
+        margin: 0 auto;
+        width: 80%;
+    }
+    button{
+        width: 35%;
+        margin: 0 auto;
+        margin-top: 1rem;
+        text-align: center;
+    }
+}
 `
 const SearchData = styled.div`
 display: flex;
+@media (max-width: 1300px){
+    justify-content: center;
+    flex-wrap: wrap;
+}
 `
 const SearchMovie = styled.div`
 h2{

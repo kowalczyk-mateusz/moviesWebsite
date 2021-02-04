@@ -42,3 +42,7 @@ export const popularActorsApi = `https://api.themoviedb.org/3/person/popular?api
 export const actorDetailApi =(actorId) => `https://api.themoviedb.org/3/person/${actorId}?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`
 //GET ACTOR MOVIES
 export const actorMoviesApi = (actorId) => `https://api.themoviedb.org/3/person/${actorId}/movie_credits?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US`
+//GET SIMILAR MOVIES
+export const similarMoviesApi = (movieId) => `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US&page=1`
+//GET SIMILAR MOVIES
+export const similarTvSeriesApi = (seriesId) => `https://api.themoviedb.org/3/tv/${seriesId}/similar?api_key=${process.env.REACT_APP_MOVIE_API}&language=en-US&page=1`

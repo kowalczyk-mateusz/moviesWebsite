@@ -3,11 +3,10 @@ import {useSelector, useDispatch} from 'react-redux'
 import {loadSeries} from '../actions/seriesAction'
 import styled from 'styled-components'
 import Series from '../components/series/Series'
-const PopularTvSeries = () =>{
+const PopularTvSeries = ({pageNumber, setPageNumber}) =>{
 
-    const [pageNumber, setPageNumber] = useState(1);
     const nextPageHandler = () =>{
-
+        window.scrollTo(0, 0);
         if(pageNumber === 10){
             setPageNumber(1)
         }
@@ -16,6 +15,7 @@ const PopularTvSeries = () =>{
         }
     }
     const previousPageHandler = ( )=>{
+        window.scrollTo(0, 0);
         if(pageNumber === 1){
             setPageNumber(10)
         }

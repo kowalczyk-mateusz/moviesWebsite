@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import Nav from './components/Navigation/nav'
 import styled from 'styled-components'
@@ -13,17 +13,18 @@ import CategoriesMovie from './components/Categories/CategoriesMovie';
 import Search from './pages/Search'
 import SingleActor from './components/Actors/SingleActor';
 function App() {
-
+  
+  const [pageNumber, setPageNumber] = useState(1);
   return (
     <Main>
-    <Nav />
+    <Nav pageNumber={pageNumber} setPageNumber={setPageNumber}/>
     <Switch>
           
-      <Route path="/PopularMovies" exact>
-        <PopularMovies/>
+      <Route path="/" exact>
+        <PopularMovies pageNumber={pageNumber} setPageNumber={setPageNumber}/>
       </Route>
-      <Route path='/PopularTvSeries'>
-        <PopularTvSeries/>
+      <Route  path='/PopularTvSeries'>
+        <PopularTvSeries pageNumber={pageNumber} setPageNumber={setPageNumber}/>
       </Route>
       <Route path="/Categories" exact>
         <Categories/>

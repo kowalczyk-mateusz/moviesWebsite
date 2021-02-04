@@ -15,7 +15,6 @@ export const loadMovies = (id) => async (dispatch) =>{
         payload: {
             popularMovies: popularData.data.results,
             upcomingMovies: upcomingData.data,
-
             movieGenres: genresData.data.genres,
             movieGenresList: genresListData.data.results,
         },
