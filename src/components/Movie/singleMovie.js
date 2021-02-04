@@ -169,24 +169,29 @@ const MovieTitle = styled.div`
 font-size: 1.5rem;
 @media (max-width: 900px){
    font-size: 1rem;
-   text-align: center;
+   text-align: left;
 }
 `
 const MovieRating = styled.div`
-
+font-size: 1.3rem;
+@media (max-width: 900px){
+    font-size: 0.8rem;
+}
 `
 const MovieDescription = styled.div`
-font-size: 0.8rem;
+font-size: 1.3rem;
 font-weight: lighter;
 @media (max-width: 900px){
  padding: 0.5rem 0rem;  
+ font-size: 0.8rem;
 }
 `
 const MovieReleaseDate = styled.div`
-font-size: 0.8rem;
+font-size: 1.3;
 font-size: bold;
 @media (max-width: 900px){
  padding-bottom: 0.5rem;  
+ font-size: 0.8rem;
 }
 `
 const MovieGenres = styled.div`
@@ -196,8 +201,8 @@ flex-wrap: wrap;
 justify-content: flex-start;
 p{
     background-color: #47CCA0;
-    padding:0rem 0.5rem;
-    font-size: 0.7rem;
+    padding:0.1rem 1rem;
+    font-size: 1.5rem;
     border-radius: 1rem;
     margin-right: 0.5rem;
     
@@ -205,6 +210,9 @@ p{
 }
 @media (max-width: 900px){
  justify-content: center;  
+ p{
+     font-size: 0.8rem;
+ }
 }
 `
 const MovieCompanies = styled.div`
@@ -215,6 +223,7 @@ color: white;
 display: flex;
 flex-wrap: wrap;
 padding: 2rem 0rem;
+font-size: 1.2rem;
 p{
     margin: 0.25rem 0.25rem;
 }

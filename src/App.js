@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-
-import Nav from './components/Navigation/nav'
+import MobileHook from './Hooks/mobileHook'
+import DesktopNavigation from './components/Navigation/DesktopNavigation'
 import styled from 'styled-components'
 import {Route, Switch} from 'react-router-dom'
 import Categories from './pages/Categories';
@@ -12,12 +12,15 @@ import SingleSeries from './components/series/singleSeries'
 import CategoriesMovie from './components/Categories/CategoriesMovie';
 import Search from './pages/Search'
 import SingleActor from './components/Actors/SingleActor';
+import MobileNavigation from './components/Navigation/MobileNavigation'
 function App() {
   
   const [pageNumber, setPageNumber] = useState(1);
+  const [mobile, setMobile] = useState(false)
+  MobileHook(setMobile, 1000);
   return (
     <Main>
-    <Nav pageNumber={pageNumber} setPageNumber={setPageNumber}/>
+    {mobile ? <MobileNavigation/> : <DesktopNavigation pageNumber={pageNumber} setPageNumber={setPageNumber}/>}
     <Switch>
           
       <Route path="/" exact>

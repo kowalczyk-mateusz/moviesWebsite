@@ -19,12 +19,12 @@ flex: 1;
 display: flex;
 justify-content: center;
 h2{
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     letter-spacing: -1px;
 }
 span{
     font-weight: 300;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
 }
 `
 export const Menu = styled(motion.div)`
@@ -35,7 +35,8 @@ ul{
     padding-right: 5rem;
     li{
         padding: 0rem 0.5rem;
-        font-size: 0.7rem;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
         cursor: pointer;
         &:hover{
             transform: scale(1.2);

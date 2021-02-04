@@ -6,14 +6,13 @@ import questionMark from '../../assets/images/questionMark.png'
 const SingleActor = ( )=>{
 
     const {actor, video,isLoading} = useSelector((state)=> state.actorDetails)
-    const finalImage = `https://image.tmdb.org/t/p/w300${actor.profile_path}`
     return(
        <>
        {!isLoading &&(
         <StyledActor>
             <ActorBox>
             <ActorImage>
-            <img src={finalImage} alt={actor.name}/>
+            <img src={actor.profile_path === null ?   `${questionMark}` : `https://image.tmdb.org/t/p/w300/${actor.profile_path}`} alt={actor.name}/>
             </ActorImage>
             <ActorInfo>
             <ActorName>

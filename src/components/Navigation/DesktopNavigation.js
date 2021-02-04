@@ -1,7 +1,7 @@
 import React from 'react'
 import {Logo, NavBar, Menu, StyledLink} from './navStyle'
 
-const Nav = ({pageNumber, setPageNumber}) =>{
+const DesktopNavigation = ({pageNumber, setPageNumber}) =>{
     const movieHomePage = ()=>{
         setPageNumber(1)
     }
@@ -25,4 +25,4 @@ const Nav = ({pageNumber, setPageNumber}) =>{
 }
 
 
-export default Nav
+export default DesktopNavigation
