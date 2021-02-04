@@ -20,7 +20,7 @@ function App() {
   MobileHook(setMobile, 1000);
   return (
     <Main>
-    {mobile ? <MobileNavigation/> : <DesktopNavigation pageNumber={pageNumber} setPageNumber={setPageNumber}/>}
+    {mobile ? <MobileNavigation pageNumber={pageNumber} setPageNumber={setPageNumber}/> : <DesktopNavigation pageNumber={pageNumber} setPageNumber={setPageNumber}/>}
     <Switch>
           
       <Route path="/" exact>

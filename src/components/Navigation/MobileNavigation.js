@@ -1,69 +1,59 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-
-const MobileNavigation = ()=>{
-
+import BurgerMenu from './BurgerMenu'
+import {Link} from 'react-router-dom'
+const MobileNavigation = ({pageNumber, setPageNumber})=>{
+    const movieHomePage = ()=>{
+        setPageNumber(1)
+    }
     const [open, isOpen] = useState(false)
     console.log(open)
     const isOpenHandler = ( )=>{
-        return isOpen(!open)
+        if(open === true){
+            isOpen(false)
+        }
+        else{
+            isOpen(true)
+        }
         
     }
+
     return(
-        <HamburgerBox onClick={isOpenHandler}>
-
-            <HamburgerButton className={open ? 'open' : null}  >
-                <Hamburger className='burger'></Hamburger>
-            </HamburgerButton>
-
-        </HamburgerBox>
+        <Menu>
+       <BurgerMenu clickHandler={isOpenHandler} open={open}/>
+       <ul>
+       <StyledLink onClick={movieHomePage} to='/'><li>Popularne Filmy</li></StyledLink>
+                    <StyledLink onClick={movieHomePage} to={`/PopularTvSeries`}><li>Popularne Seriale</li></StyledLink>
+                    <StyledLink to='/Categories'><li>Kategorie</li></StyledLink>
+                    <StyledLink to='/Actors'><li>Aktorzy</li></StyledLink>
+                    <StyledLink to='/Search'><li>Szukaj filmu</li></StyledLink>
+       </ul>
+       </Menu>
     )
 }
-const HamburgerBox = styled.div`
-padding: 2rem;
-`
-const HamburgerButton = styled.button`
-outline: red;
-background-color: transparent;
-&.open .burger{
-    background-color: transparent;
-    transform: translateX(30px);
-    ::before{
-        transform: translate(-30px, -15px) rotate(45deg);
-    }
-    ::after{
-      
-       transform: translate(-30px, 15px) rotate(-45deg);
-    }
+
+const Menu = styled.div`
+padding-bottom: 5rem;
+
+ul{
+position: fixed;
+width: 100%;
+height: 100vh;
+background-color: black;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+top: 0;
+left: 0;
+transform: ${(open)=> open === true ? 'translateX(0)' : 'translateX(-100%)'};
+
 }
 `
-const Hamburger = styled.span`
-display: inline-block;
-width: 50px;
-height: 4px;
-background-color: red;
-position: absolute;
-transition: all 0.3s;
-&:before{
-    content: '';
-    width: 50px;
-    height: 4px;
-    background-color: red;
-    position: absolute;
-    top: 15px;
-    left: 0;
-    transition: all 0.5s;
-}
-&::after{
-    content: '';
-    width: 50px;
-    height: 4px;
-    background-color: red;
-    position: absolute;
-    top: -15px;
-    left: 0;
-    transition: all 0.5s;
-}
+const StyledLink = styled(Link)`
+color:  #47CCA0;
+font-size: 2rem;
+padding: 1rem 0rem;
 `
 
 export default MobileNavigation
