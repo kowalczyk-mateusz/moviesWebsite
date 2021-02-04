@@ -276,12 +276,9 @@ const SeriesTrailer = styled.div`
 width: 70%;
 margin: 0 auto;
 height: 300px;
-@media (max-width: 900px){
-    width: 100%;
-}
 div{
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
 h3{
@@ -292,12 +289,23 @@ h3{
     display: inline-block;
 }
 iframe{
-    margin-top: 1rem;
-    width: 100%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 50%;
+    display: block;
     height: 100%;
     border: 3px solid #47CCA0;
 }
-
+@media (max-width: 900px){
+    width: 100%;
+    div{
+        justify-content: center;
+    }
+    iframe{
+        width: 90%;
+        height: 80%;
+    }
+}
 `
 
 const ActorsList = styled.div`

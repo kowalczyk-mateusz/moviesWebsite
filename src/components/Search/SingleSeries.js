@@ -9,6 +9,7 @@ import { loadDetail } from '../../actions/detailsTvActions'
 const dispatch = useDispatch()
 
 const loadDetailhandler =()=>{
+    window.scrollTo(0,0)
         dispatch(loadDetail(id))
 }
 

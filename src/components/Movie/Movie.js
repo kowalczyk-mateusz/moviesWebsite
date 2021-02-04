@@ -3,9 +3,11 @@ import styled from 'styled-components'
 import { useDispatch } from 'react-redux';
 import { loadDetail } from '../../actions/detailsActions';
 import {Link} from 'react-router-dom'
+import questionMark from '../../assets/images/questionMark.png'
 const Movies = ({title,  image, id})=>{
 
-    const finalImage = `https://image.tmdb.org/t/p/w500${image}`
+    const finalImage = `${image === null ? questionMark : `https://image.tmdb.org/t/p/w300${image}`}`
+
 
     const dispatch = useDispatch()
 

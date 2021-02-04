@@ -234,7 +234,7 @@ margin: 0 auto;
 height: 350px;
 div{
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
 h3{
@@ -258,7 +258,7 @@ iframe{
         justify-content: center;
     }
     iframe{
-        width: 100%;
+        width: 90%;
         height: 80%;
     }
 }

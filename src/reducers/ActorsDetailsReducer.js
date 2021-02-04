@@ -1,6 +1,7 @@
 const initialState = {
     actor: [],
     video: [],
+    isLoading: true,
 }
 
 const actorsDetailsAction = (state=initialState, action) => {
@@ -10,7 +11,13 @@ const actorsDetailsAction = (state=initialState, action) => {
             ...state,
             actor: action.payload.actor,
             video: action.payload.video,
+            isLoading: false,
         }
+        case "LOADING_DATA":
+            return{
+                ...state,
+                isLoading: true,
+            }
         default: 
         return{
             ...state,

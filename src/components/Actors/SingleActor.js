@@ -2,11 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import {useSelector} from 'react-redux'
 import Movie from '../Movie/Movie'
+import questionMark from '../../assets/images/questionMark.png'
 const SingleActor = ( )=>{
 
-    const {actor, video} = useSelector((state)=> state.actorDetails)
+    const {actor, video,isLoading} = useSelector((state)=> state.actorDetails)
     const finalImage = `https://image.tmdb.org/t/p/w300${actor.profile_path}`
     return(
+       <>
+       {!isLoading &&(
         <StyledActor>
             <ActorBox>
             <ActorImage>
@@ -16,13 +19,14 @@ const SingleActor = ( )=>{
             <ActorName>
                 {actor.name}
             </ActorName>
+            
+            <ActorBirthday>
+                Birthday: {actor.birthday}
+            </ActorBirthday>
             <ActorBiography>
                 {actor.biography}
             </ActorBiography>
 
-            <ActorBirthday>
-                Birthday: {actor.birthday}
-            </ActorBirthday>
             {actor.deathday && (
             <ActorDeathday>
                 Deathday: {actor.deathday}
@@ -61,6 +65,8 @@ const SingleActor = ( )=>{
                 )}
             </ActorMovies>
         </StyledActor>
+    )}
+        </>
     )
 }
 const StyledActor = styled.div`
@@ -70,6 +76,10 @@ min-height: 100vh;
 margin: 0 auto;
 display: flex;
 flex-direction: column;
+@media (max-width: 900px){
+    width: 100%;
+    padding: 0rem 1rem;
+}
 `
 const ActorBox = styled.div`
 display: flex;
@@ -77,6 +87,11 @@ width: 100%;
 height: 50vh;
 justify-content: space-between;
 padding: 0rem 5rem;
+@media (max-width: 900px){
+    height: auto;
+    flex-direction: column;
+    padding: 0rem;
+}
 `
 const ActorInfo = styled.div`
 flex: 2;
@@ -84,6 +99,10 @@ padding: 0rem 5rem;
 display: flex;
 flex-direction: column;
 justify-content: flex-start;
+@media (max-width: 900px){
+    padding: 0rem 1rem;
+    margin: 0 auto;
+}
 `
 const ActorName = styled.h2`
 padding-bottom: 1rem;
@@ -93,9 +112,16 @@ const ActorBiography = styled.div`
 padding-bottom: 1rem;
 font-size: 1rem;
 letter-spacing: 1px;
+@media (max-width: 900px){
+    font-weight: lighter;
+}
 `
 
 const ActorBirthday = styled.div`
+@media (max-width: 900px){
+    padding-bottom: 1rem;
+    font-size: 1.3rem;
+}
 `
 const ActorDeathday = styled.div`
 `
@@ -121,6 +147,18 @@ img{
     width: 100%;
     height: 100%;
     object-fit: fill;
+}
+@media (max-width: 900px){
+
+    margin: 0 auto;
+    margin-top: 1rem;
+    img{
+        width: 15rem;
+        height: 20rem;
+        object-fit: cover;
+
+        margin: 0 auto;
+    }
 }
 `
 
