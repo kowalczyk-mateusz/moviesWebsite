@@ -39,7 +39,7 @@ ul{
         letter-spacing: 1px;
         cursor: pointer;
         &:hover{
-            transform: scale(1.2);
+            color: white;
             
         }
     }

@@ -20,7 +20,7 @@ z-index: 99;
 cursor: pointer;
 `
 const HamburgerButton = styled.button`
-outline: red;
+outline: #47CCA0;
 background-color: transparent;
 padding: 2rem;
 cursor: pointer;
@@ -39,7 +39,7 @@ const Hamburger = styled.span`
 display: inline-block;
 width: 40px;
 height: 4px;
-background-color: red;
+background-color: #47CCA0;
 position: absolute;
 transition: all 0.3s;
 border-radius: 5px;
@@ -47,7 +47,7 @@ border-radius: 5px;
     content: '';
     width: 40px;
     height: 4px;
-    background-color: red;
+    background-color: #47CCA0;
     position: absolute;
     top: 15px;
     left: 0;
@@ -58,7 +58,7 @@ border-radius: 5px;
     content: '';
     width: 40px;
     height: 4px;
-    background-color: red;
+    background-color: #47CCA0;
     position: absolute;
     top: -15px;
     left: 0;

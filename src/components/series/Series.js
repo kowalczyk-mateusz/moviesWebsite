@@ -22,7 +22,7 @@ const Series = ({title,image,id})=>{
 
 const Serie = styled.div`
 width: 100%;
-max-height: 250px;
+max-height: 400px;
 overflow: hidden;
 justify-content: space-between;
 cursor: pointer;
@@ -35,13 +35,13 @@ cursor: pointer;
 img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 h1{
     height: 2rem;
     font-size: 1rem;
-    text-align: left;
+    text-align: center;
     color: #47CCA0;
     z-index: 4;
 }
