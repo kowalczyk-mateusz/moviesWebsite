@@ -7,16 +7,17 @@ const MobileNavigation = ({pageNumber, setPageNumber})=>{
     const movieHomePage = ()=>{
         setPageNumber(1)
         isOpen(false);
+        document.body.style.overflow='auto';
     }
     const [open, isOpen] = useState(false)
     console.log(open)
     const isOpenHandler = ( )=>{
-        if(open === true){
-            isOpen(false)
+        if(open === false){
+            isOpen(true)
             document.body.style.overflow='hidden';
         }
         else{
-            isOpen(true)
+            isOpen(false)
             document.body.style.overflow='auto';
         }
         
@@ -24,6 +25,7 @@ const MobileNavigation = ({pageNumber, setPageNumber})=>{
 
     const linkClickHandle = () =>{
         isOpen(false);
+        document.body.style.overflow='auto';
     }
 
     return(
