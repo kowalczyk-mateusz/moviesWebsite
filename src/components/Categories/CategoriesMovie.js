@@ -15,12 +15,12 @@ const CategoriesMovie = ()=>{
   const dispatch = useDispatch();
   useEffect(()=>{
     dispatch(loadMovies(id));
-  },[dispatch])
+  },[dispatch, id])
   const {movieGenresList} = useSelector((state) => state.movies)
     return(
       <HomePage>
 
-    <h2>Top 20 filmów z kategorii {genreName}</h2>
+    <h2>Top 20 {genreName} Movies</h2>
       {movieGenresList&&(
 
       <MoviesList>

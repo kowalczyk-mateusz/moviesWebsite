@@ -143,7 +143,7 @@ input{
         width: 80%;
     }
     button{
-        width: 35%;
+        width: 45%;
         margin: 0 auto;
         margin-top: 1rem;
         text-align: center;

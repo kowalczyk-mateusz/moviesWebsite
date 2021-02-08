@@ -1,7 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import styled from 'styled-components'
-import anonymo from '../../assets/images/anonymous.png'
 import Series from './Series'
 import Actor from '../Actors/Actor'
 
@@ -68,16 +67,16 @@ margin-bottom: 5rem;
                     <SeasonsAndNetworks>
                     <Seasons>
                         <h3>Seasons:</h3>
-        {series.seasons.map((season)=><div><p>{season.name}: </p> <p>{season.episode_count} Episodes</p></div>)}
+        {series.seasons.map((season)=><div key={season.id}><p>{season.name}: </p> <p>{season.episode_count} Episodes</p></div>)}
                     </Seasons>
                     <Networks>
                         <h3>Available on:</h3>
-                        {series.networks.map((network)=><div><p key={network.id}>{network.name}</p></div>)}
+                        {series.networks.map((network)=><div key={network.id}><p key={network.id}>{network.name}</p></div>)}
                     </Networks>
                     </SeasonsAndNetworks>
                     <SeriesTrailer>
                 <div>
-                <h3>ZOBACZ ZWIASTUN</h3>
+                <h3>WATCH TRAILER</h3>
 
                 </div>
                 {video &&(
@@ -85,7 +84,7 @@ margin-bottom: 5rem;
                 )}
                 </SeriesTrailer>
                 <ActorsList>
-                    <h3>OBSADA</h3>
+                    <h3>CAST</h3>
                     <ActorsBox>
                         {
                         credits.map((actor)=>(<Actor
@@ -158,7 +157,7 @@ padding-left: 1rem;
 @media (max-width: 900px){
  padding-left: 0rem;  
  justify-content: flex-start;
- height: 300px;
+ height: auto;
 }
 `
 const SeriesTitle = styled.div`

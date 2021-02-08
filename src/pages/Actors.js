@@ -15,7 +15,7 @@ const Actors = () =>{
     return(
         <StyledActors>
 
-        <h2>top 20 aktorów dzisiaj</h2>
+        <h2>Top 20 Popular actors</h2>
         {actors &&(
 
         <ActorsList>

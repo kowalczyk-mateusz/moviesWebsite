@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useDispatch } from 'react-redux';
 import { loadDetail } from '../../actions/detailsActions';
 import {Link} from 'react-router-dom'
+import {motion} from 'framer-motion'
 import questionMark from '../../assets/images/questionMark.png'
 const Movies = ({title,  image, id})=>{
 
@@ -25,7 +26,7 @@ const Movies = ({title,  image, id})=>{
     )
 }
 
-const Movie = styled.div`
+const Movie = styled(motion.div)`
 width: 100%;
 max-height: 400px;
 overflow: hidden;

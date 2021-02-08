@@ -83,9 +83,10 @@ flex-direction: column;
 const ActorBox = styled.div`
 display: flex;
 width: 100%;
-height: 50vh;
+min-height: 50vh;
 justify-content: space-between;
-padding: 0rem 5rem;
+padding: 0;
+padding-left: 5rem;
 @media (max-width: 900px){
     height: auto;
     flex-direction: column;
@@ -143,8 +144,9 @@ grid-row-gap: 3rem;
 `
 const ActorImage = styled.div`
 img{
-    width: 100%;
-    height: 100%;
+    margin-top: 2rem;
+    width: 200px;
+    height: 250px;
     object-fit: fill;
 }
 @media (max-width: 900px){

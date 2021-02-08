@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {loadSeries} from '../actions/seriesAction'
 import styled from 'styled-components'

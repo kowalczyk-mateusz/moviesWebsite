@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {loadMovies} from '../actions/movieAction'
 import Movies from '../components/Movie/Movie'
@@ -31,13 +31,13 @@ const PopularMovies = ({pageNumber, setPageNumber}) =>{
     const dispatch = useDispatch();
     useEffect(()=>{
       dispatch(loadMovies(pageNumber));
-    }, [pageNumber])
+    }, [pageNumber, dispatch])
     
     const {popularMovies} = useSelector((state) => state.movies)
     return(
         <HomePage>
 
-            <h2>Popular Movies</h2>
+            <motion.h2>Popular Movies</motion.h2>
             <h3>Page: {pageNumber}</h3>
             {popularMovies &&(
    

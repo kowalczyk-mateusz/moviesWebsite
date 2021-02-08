@@ -6,7 +6,7 @@ padding-bottom: 5rem;
 position: sticky;
 top: 0;
 left: 0;
-background-color: #030B11;
+background-color:#071621;
 height: 50px;
 z-index: 99;
 ul{

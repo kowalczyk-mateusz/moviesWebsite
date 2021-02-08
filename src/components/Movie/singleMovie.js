@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import Actor from '../Actors/Actor'
 import Movie from './Movie'
+import {motion} from 'framer-motion'
+import {pageAnimation} from '../../assets/FramerMotion/animations'
 
 const SingleMovie = ()=>{
 
@@ -43,7 +45,7 @@ margin-bottom: 5rem;
 return(
     <>
 {!isLoading &&(
-    <MovieDetail>
+    <MovieDetail variants={pageAnimation} initial='hidden' animate='show' exit='exit' >
     <MovieInfo>
         <MoviePoster>
             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.poster_path}/>
@@ -79,7 +81,7 @@ return(
             </MovieCompanies>
             <MovieTrailer>
                 <div>
-                <h3>ZOBACZ ZWIASTUN</h3>
+                <h3>WATCH TRAILER</h3>
                 </div>
                 {video[0] &&(
                     <iframe src={`https://www.youtube.com/embed/${video[0].key}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title={video[0].key}></iframe>
@@ -87,7 +89,7 @@ return(
                 </MovieTrailer>
 
                     <ActorsList>
-                    <h3>OBSADA</h3>
+                    <h3>CAST</h3>
                     <ActorsBox>
                         {
                         actors.map((actor)=>(<Actor
@@ -127,7 +129,7 @@ return(
 )}
 
 
-const MovieDetail = styled.div`
+const MovieDetail = styled(motion.div)`
 width: 100%;
 min-height: 100vh;
 background: black;
