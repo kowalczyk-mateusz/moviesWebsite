@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import {motion} from 'framer-motion'
 import {Link} from 'react-router-dom'
 
+
 export const NavBar = styled(motion.div)`
 width: 100%;
 height: 10vh;
@@ -50,6 +51,13 @@ ul{
 export const StyledLink = styled(Link)`
 text-decoration: none;
 color: #47CCA0;
-
+position: relative;
 `
 
+export const Line = styled(motion.div)`
+width: 0%;
+height: 3px;
+background-color: #47CCA0;
+position: absolute;
+left: 0.5rem;
+`

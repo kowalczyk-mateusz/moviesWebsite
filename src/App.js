@@ -13,6 +13,7 @@ import CategoriesMovie from './components/Categories/CategoriesMovie';
 import Search from './pages/Search'
 import SingleActor from './components/Actors/SingleActor';
 import MobileNavigation from './components/Navigation/MobileNavigation'
+import {pageAnimation} from './assets/FramerMotion/animations'
 function App() {
   
   const [pageNumber, setPageNumber] = useState(1);
@@ -24,7 +25,7 @@ function App() {
     <Switch>
           
       <Route path="/" exact>
-        <PopularMovies pageNumber={pageNumber} setPageNumber={setPageNumber}/>
+        <PopularMovies pageNumber={pageNumber} setPageNumber={setPageNumber} variants={pageAnimation} initial='hidden' animate='show' exit='exit'/>
       </Route>
       <Route  path='/PopularTvSeries'>
         <PopularTvSeries pageNumber={pageNumber} setPageNumber={setPageNumber}/>

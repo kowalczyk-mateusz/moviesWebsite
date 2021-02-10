@@ -8,9 +8,11 @@ const MobileNavigation = ({setPageNumber})=>{
         setPageNumber(1)
         isOpen(false);
         document.body.style.overflow='auto';
+        window.scrollTo(0, 0);
     }
     const [open, isOpen] = useState(false)
     const isOpenHandler = ( )=>{
+        window.scrollTo(0, 0);
         if(open === false){
             isOpen(true)
             document.body.style.overflow='hidden';
