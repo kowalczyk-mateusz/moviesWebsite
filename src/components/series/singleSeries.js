@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux'
 import styled from 'styled-components'
 import Series from './Series'
 import Actor from '../Actors/Actor'
-
+import Loader from '../Loader'
 const SingleSeries = ()=>{
 
 
@@ -40,7 +40,7 @@ margin-bottom: 5rem;
 
     return(
         <>
-        {!isLoading &&(
+        {isLoading === true ? <Loader /> :
                 <SeriesDetail>
                     <SeriesInfo>
                         <SeriesPoster>
@@ -116,7 +116,7 @@ margin-bottom: 5rem;
                     </SimilarSeries>
                 </SeriesDetail>
 
-        )}
+}
         </>
 
     )

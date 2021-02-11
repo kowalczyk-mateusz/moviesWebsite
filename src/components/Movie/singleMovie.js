@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import Actor from '../Actors/Actor'
 import Movie from './Movie'
 import {motion} from 'framer-motion'
-import {pageAnimation} from '../../assets/FramerMotion/animations'
-
+import Loader from '../Loader'
 const SingleMovie = ()=>{
 
 
@@ -44,8 +43,8 @@ margin-bottom: 5rem;
 //
 return(
     <>
-{!isLoading &&(
-    <MovieDetail variants={pageAnimation} initial='hidden' animate='show' exit='exit' >
+    {isLoading === true ? <Loader /> :
+    <MovieDetail>
     <MovieInfo>
         <MoviePoster>
             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.poster_path}/>
@@ -123,7 +122,7 @@ return(
         </SimilarMovies>
           
     </MovieDetail>
-)}
+}
 
 </>
 )}

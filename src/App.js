@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import MobileHook from './Hooks/mobileHook'
 import DesktopNavigation from './components/Navigation/DesktopNavigation'
 import styled from 'styled-components'
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch, useLocation} from 'react-router-dom'
 import Categories from './pages/Categories';
 import PopularTvSeries from './pages/PopularTvSeries'
 import PopularMovies from './pages/PopularMovies'
@@ -13,9 +13,8 @@ import CategoriesMovie from './components/Categories/CategoriesMovie';
 import Search from './pages/Search'
 import SingleActor from './components/Actors/SingleActor';
 import MobileNavigation from './components/Navigation/MobileNavigation'
-import {pageAnimation} from './assets/FramerMotion/animations'
+
 function App() {
-  
   const [pageNumber, setPageNumber] = useState(1);
   const [mobile, setMobile] = useState(false)
   MobileHook(setMobile, 1000);
@@ -25,7 +24,7 @@ function App() {
     <Switch>
           
       <Route path="/" exact>
-        <PopularMovies pageNumber={pageNumber} setPageNumber={setPageNumber} variants={pageAnimation} initial='hidden' animate='show' exit='exit'/>
+        <PopularMovies pageNumber={pageNumber} setPageNumber={setPageNumber}/>
       </Route>
       <Route  path='/PopularTvSeries'>
         <PopularTvSeries pageNumber={pageNumber} setPageNumber={setPageNumber}/>
