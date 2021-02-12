@@ -5,12 +5,12 @@ const Loader = () =>{
     const loadingContainerVariants = {
         start: {
           transition: {
-            staggerChildren: 0.2
+            staggerChildren: 0.1
           }
         },
         end: {
           transition: {
-            staggerChildren: 0.2
+            staggerChildren: 0.1
           }
         }
       };
@@ -25,7 +25,7 @@ const Loader = () =>{
       };
       
       const loadingCircleTransition = {
-        duration: 0.5,
+        duration: 0.4,
         yoyo: Infinity,
         ease: "easeInOut"
       };
@@ -63,7 +63,7 @@ const LoadSpan = styled(motion.span)`
   display: block;
   width: 3rem;
   height: 3rem;
-  background-color: black;
+  background-color: #47CCA0;
   border-radius: 5rem;
 `
 export default Loader
